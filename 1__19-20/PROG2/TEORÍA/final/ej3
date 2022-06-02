@@ -1,0 +1,47 @@
+/* Suponemos que el array está ordenado de menor a mayor */
+
+/* función aux: (búsqueda binaria)
+ * devuelve la posición del entero n en el array a
+ * ó -1 si no lo encuentra o hay algún error.
+ * first es la posición del primer elemento del array 
+ * en el que buscamos en cada momento y last, la última
+ */
+int busca_numEnArr(int *a, int first, int last, int n);
+
+/*def de función aux*/
+
+int busca_numEnArr(int *a, int first, int last, int n){
+    int m;
+    
+    if(first > last) return -1;
+    
+    m = (first + last) / 2;
+    
+    if(a[m] == n) /*si lo encontramos, devolvemos la posición en el array */
+        return m;
+    else if(a[m] < n) /*entonces buscamos en la mitad superior*/
+        return busca_numEnArr(a, m+1, last, n);
+    else        /*entonces buscamos en la mitad inferior*/
+        return busca_numEnArr(a, first, m-1, n);
+}
+
+
+
+/*función principal */
+
+Bool estaRep (int *a, size_t l, int n){
+    int pos;
+
+    if(!a) return FALSE;
+/*buscamos n en a, 0 es la posición inicial y l-1 la última*/
+    pos = busca_numEnArr(a, 0, l-1, n);
+
+/*si no se encuentra, devolver FALSE*/
+    if(pos == -1) return FALSE;
+/*si lo encontramos y es igual a su anterior o posterior, está repetido*/
+    else if(a[pos] == a[pos-1] || a[pos] == a[pos+1])
+        return TRUE;
+/*en caso contrario está pero solamente una vez*/
+    else
+        return FALSE;
+}

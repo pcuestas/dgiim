@@ -1,0 +1,37 @@
+public abstract class Meeting{
+        //attributes and methods...        
+        public boolean canEnter(User u){
+                return (this.room.isBanned(u))?false:true;
+        }
+        //...
+}
+
+public class PrivateMeeting extends Meeting{
+        //attributes and methods...        
+        public boolean canEnter(User u){
+                if(super(u)==false){
+                        return false;
+                }
+                for(User k: this.allowedUsers){
+                        if(k==u){
+                                return true;
+                        }
+                }
+                return false;
+        }
+        //...
+}
+
+public class PublicMeeting extends Meeting{
+        //attributes and methods...        
+        public boolean canEnter(User u){
+                if(super(u)==false){
+                        return false;
+                }
+                if(this.numAtendees+1 <= this.maxAtendees){
+                        return true;
+                }
+                return false;
+        }
+        //...
+}

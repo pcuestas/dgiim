@@ -1,0 +1,12 @@
+1. Podemos dar por hecho la estrucutra del query (cuantas columnas va a dar etc..)
+
+2. Describir el tipo de las columnas al mostrar el resultado del query o no?
+
+3. Como hacer lo de pasar pagina cuando hay más de diez resultados
+    ideas de cosas utiles: 
+        . funciones sql cursor
+
+4. valgrind dice que perdemos memoria en 354 bloques!!!
+_____________________________________________________-
+
+como organizar el código, .h etc

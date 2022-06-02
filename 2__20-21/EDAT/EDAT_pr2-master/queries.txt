@@ -1,0 +1,29 @@
+
+PRODUCTS
+
+    .Find
+    select productcode, productname
+    from products 
+    where productname like '%Ferrari%' <-- sprintf
+    order by productcode 
+    
+    .Range
+    select ordernumber, orderdate, shippeddate
+    from orders 
+    where orderdate>='2003-01-01' and orderdate<='2003-03-25'
+
+    .Detail
+    select status, orderdate,productcode, quantityordered, priceeach 
+    from orderdetails natural join orders
+    where ordernumber=10100  
+    order by orderlinenumber
+
+
+ORDERS
+    . Open:
+    select ordernumber 
+    from ORDERS
+    where shippeddate is NULL
+    order by ordernumber 
+
+    . Range

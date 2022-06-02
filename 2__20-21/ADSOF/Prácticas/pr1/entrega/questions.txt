@@ -1,0 +1,8 @@
+3. Negative numbers give no problems, the program works as expected (because they are integers). I we enter no parameters, we get the message saying that, at least, two numbers are expected. However, if we enter a letter there is an error because we are using the parseInt() method, expecting numbers as a string, but receiving other characters.
+
+To implement a solution for this, we could check the string entered to check if they are numbers, and then invoke the method Sort.
+
+Another improvement that could be made to this code is to include a method that allows to add new elements to an object, like: add(int z); or to remove elements from the object.
+
+4. There are parenthesis, so the first operation is the addition of the two sums, then they are concatenated to the string that is to be printed.
+If we remove those parenthesis, then the two integers are not added, but concatenated as strings.

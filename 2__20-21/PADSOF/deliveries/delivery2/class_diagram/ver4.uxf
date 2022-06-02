@@ -1,0 +1,342 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text>Space f</help_text><element><id>UMLClass</id><coordinates><x>1102</x><y>80</y><w>440</w><h>600</h></coordinates><panel_attributes>Application
+--
+-INSTANCE:Application
+- maxTicketsPurchase: int
+- maxTicketsReservation: int
+- timeAfterReservation: long {days}
+- name:String
+-currentDate:LocalDate
+--
++ getInstance():Application
++ getInstanceFromFile(f:String):Application
++ getInstanceFromFile():Application
++ addEvent(e:Event):boolean
++ addArea(a:Area):boolean
++ removeArea(a:Area):boolean
++ areFuturePerformances():boolean
++ addCycle(c:Cycle):boolean
++ showStats():String
++ searchEvents(s:SearchBy, i ISearchOnly, text:String):Search&lt;Event&gt;
++ searchEvents(s:SearchBy, text:String):Search&lt;Event&gt;
++ searchPerformances(s:SearchBy, i ISearchOnly, 
+      text:String,d1:LocalDate, d2:LocalDate):List&lt;Performance&gt;
++ searchPerformances(s:SearchBy, text:String,d1:LocalDate,
+      d2:LocalDate):List&lt;Performance&gt;
++ searchPerformances(s:SearchBy, i ISearchOnly, text:String):List&lt;Performance&gt;
++ searchCycle(text:String, t:EventType):Cycle
++canAddNewPerformance(d:LocalDate):boolean
++ login(username:String, passwords:String): boolean
++ register(username:String, pass:String):RegUser
++getUser(username:String):RegUser
++logout()
++getSpecificStat(e:Event,p:Perfromance,a:Area):Stat
++getSpecificStats():List&lt;Stat&gt;
++getStatsEvents():List&lt;Stat&gt;
++getStats(a:Area):Stat
++getStatsAreas():List&lt;Stat&gt;
++writeToFile()
++writeToFile(file:String)
++readFromFile(file:String):Application
++readFromFile(file:String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>872</x><y>700</y><w>340</w><h>80</h></coordinates><panel_attributes>/RegUser/
+--
+- username:String
+- password:String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>952</x><y>810</y><w>340</w><h>170</h></coordinates><panel_attributes>Client
+--
++ buyPass(c:Cycle, a:SimipleArea, c:CreditCard):boolean
++ buyPass(year:int, a:SimipleArea, c:CreditCard):boolean
++ addToPerformanceWaitingList(p:Performance):boolean
++ canPurchase(p:Performance):boolean
++ canReserve(p:Performance):boolean
++ addNotification(n:Notification):void
++ removeNotification(n:Notification):void
++ addTicket(t:Ticket):void
++ removeTicket(t:Ticket):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1312</x><y>760</y><w>100</w><h>30</h></coordinates><panel_attributes>Admin</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1042</x><y>770</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>1202</x><y>760</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1622</x><y>420</y><w>360</w><h>270</h></coordinates><panel_attributes>/Event/
+--
+- title: String
+- description: String
+- durationMin: int
+- author: String
+- director: String
+- picture: String
+- restriction: double = 0 {percentage}
+--
++ addPerformance(date: Localdate): boolean
++ removePerformance():boolean
++ setRestriction(percentage:double)
++ getPerformances():List&lt;Performance&gt;
++ getPerformances(happened:boolean):List&lt;Performance&gt;
++ getATR(b:SearchBy):String
++ checkPrices():boolean
++ addPrice(a:SimpleArea, d:double):boolean
++ getStats():Stat
++ getStats(a:Area):Stat
++getStatsPerformances(): List&lt;Stat&gt;
++getStatsAreas(): List&lt;Stat&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1402</x><y>1060</y><w>460</w><h>320</h></coordinates><panel_attributes>Performance
+--
+-date:LocalDate
+-tickets:Map&lt;SimpleArea,List&lt;Ticket&gt; &gt;
+--
++ cancel():void 
++ postpone(date:LocalDate):boolean 
++ removeTicket(t:ticket)
++ addTicket(t:ticket)
++ areaAvailableTickets():boolean
++ getPurchasedTickets(a:SimpleArea): List&lt;Ticket&gt;
++ getAvailableTickets(): List&lt;Ticket&gt;
++ getAvailableTickets(a:SimpleArea): List&lt;Ticket&gt;
++ getTickets(a:SimpleArea): List&lt;Ticket&gt;
++ getStats():Stat
++ getStats(a:Area):Stat
++ getStatsAreas():List&lt;Stat&gt;
++getSittingTicket(a:SittingArea,x:int,y:int):Ticket
++getMapDistanceAvailableToCenter(a:SittingArea,p:Point):Map&lt;Integer, List&lt;Ticket&gt;&gt;
++ selectAutomatic(a:SittingArea, n:int, t:AutomaticSelectionType): List&lt;Ticket&gt;
++printAreaState(a:SittingArea):String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1742</x><y>710</y><w>100</w><h>100</h></coordinates><panel_attributes>Concert
+--
+-program:String
+-orchestra:String
+-soloists:String[]
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1852</x><y>780</y><w>130</w><h>90</h></coordinates><panel_attributes>Dance
+--
+-dancers:String[]
+-conductor:String
+-orchestra:String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1922</x><y>710</y><w>100</w><h>60</h></coordinates><panel_attributes>Play
+--
+-actors:String[]
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1782</x><y>680</y><w>30</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>1882</x><y>680</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1952</x><y>680</y><w>30</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>1852</x><y>520</y><w>200</w><h>620</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r1=event
+m2=performances
+r2=*</panel_attributes><additional_attributes>130;20;180;20;180;590;10;590</additional_attributes></element><element><id>UMLClass</id><coordinates><x>752</x><y>1000</y><w>200</w><h>110</h></coordinates><panel_attributes>/Area/
+--
+- name: String
+--
++ getCapacity(): int 
+/+getSimpleAreas():List&lt;SingleArea&gt;/
+/+setAnnualPassPrice(price:double)/
+/+removeArea(Area a):boolean/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>632</x><y>1470</y><w>350</w><h>80</h></coordinates><panel_attributes>StandingArea
+--
+-capacity: int
+--
++getCapacity():int
++ getTickets(restriction:double, perf:Performance):List&lt;Ticket&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>312</x><y>1360</y><w>350</w><h>100</h></coordinates><panel_attributes>SittingArea
+--
+- rows: int
+- columns: int
+--
++ getCapacity():int
++ getTickets(restriction:double, perf:Performance):List&lt;Ticket&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>412</x><y>1570</y><w>310</w><h>150</h></coordinates><panel_attributes>Seat
+--
+-row:int
+-column:int
+
+--
++ isDisabled(d:LocalDate): boolean
++ disable(start:LocalDate, end:LocalDate): boolean
+_+ initSeats(a:SittingArea):Seat[][]_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>622</x><y>1300</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>512</x><y>1450</y><w>140</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=area
+m2=seats[rows][columns]</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1532</x><y>520</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=events
+m2=*</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>490</y><w>650</w><h>570</h></coordinates><panel_attributes>lt=-&gt;
+r2=areas
+m2=0..1</panel_attributes><additional_attributes>630;10;10;10;10;550</additional_attributes></element><element><id>Relation</id><coordinates><x>832</x><y>500</y><w>290</w><h>390</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=clients
+m2=*
+r1=theater</panel_attributes><additional_attributes>270;20;10;20;10;360;120;360</additional_attributes></element><element><id>Relation</id><coordinates><x>1212</x><y>970</y><w>210</w><h>130</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=waitingListPerformances
+m1=0..*</panel_attributes><additional_attributes>190;100;10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>462</x><y>1040</y><w>210</w><h>110</h></coordinates><panel_attributes>CompositeArea
+--
++ getCapacity():int
++ addArea(a:Area): boolean
++ getSimpleAreas():List&lt;SingleArea&gt;
++ setAnnualPassPrice(price:double)
++ removeArea(Area a):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1382</x><y>817</y><w>160</w><h>70</h></coordinates><panel_attributes>/Pass/
+--
++use(t:Ticket):boolean
+/+restore(p:Performance)/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1492</x><y>907</y><w>150</w><h>90</h></coordinates><panel_attributes>CyclePass
+--
++use(t:Ticket):boolean
++restore(p:Performance)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1312</x><y>907</y><w>160</w><h>90</h></coordinates><panel_attributes>AnnualPass
+--
+- year:int
+--
++use(t:Ticket):boolean
++restore(p:Performance)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1452</x><y>877</y><w>100</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;80;30</additional_attributes></element><element><id>Relation</id><coordinates><x>1392</x><y>877</y><w>50</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>1692</x><y>677</y><w>110</w><h>250</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+m1=1..*
+r1=events
+</panel_attributes><additional_attributes>10;10;10;170;90;170;90;230</additional_attributes></element><element><id>Relation</id><coordinates><x>1282</x><y>827</y><w>120</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=passes</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>532</x><y>990</y><w>240</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m2=areas
+r2=1..*</panel_attributes><additional_attributes>10;50;10;20;220;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>1170</y><w>360</w><h>140</h></coordinates><panel_attributes>SimpleArea
+--
+-annualPassPrice:double
+--
++ getCapacity():int
++ getSimpleAreas():List&lt;SingleArea&gt;
++setAnnualPassPrice(price:double)
++ removeArea(Area a):boolean
+/+ getTickets(restriction:double, perf:Performance):List&lt;Ticket&gt;/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>712</x><y>1300</y><w>30</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>812</x><y>1100</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>662</x><y>1060</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1323</x><y>1520</y><w>390</w><h>240</h></coordinates><panel_attributes>Ticket
+--
+#id:int
+_-countIDs:int_
+--
+_+ticketInit(restr:double,p:Performance):Map&lt;SimpleArea,List&lt;Ticket&gt; &gt;_
++ purchase(u:Client,p:PaymentMethod):boolean
++isPurchsed():boolean
++ reserve(u:Client):boolean
+/+ area():Area/
++ cancel():boolean
++ confirm():boolean
++ isAvailable():boolean
++ restrict():void
++ postpone(p:PostponedNotification):void
++ remove(p:PCancelledNotification): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1523</x><y>1370</y><w>100</w><h>170</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+m1=*
+r1=tickets
+m2=#performance</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1732</x><y>907</y><w>220</w><h>90</h></coordinates><panel_attributes>Cycle
+-
+-name:String
+-prices:Map&lt;SimplaArea, Double&gt;
+--
++isEventValid(e:Event):boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1633</x><y>950</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=cycle
+r1=1</panel_attributes><additional_attributes>99;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1543</x><y>650</y><w>100</w><h>280</h></coordinates><panel_attributes>lt=&lt;-
+r1=used
+m1=*</panel_attributes><additional_attributes>80;20;20;20;19;260</additional_attributes></element><element><id>Relation</id><coordinates><x>993</x><y>970</y><w>350</w><h>620</h></coordinates><panel_attributes>lt=&lt;-&gt;
+m2=#client
+r2=0..1
+r1=1..*
+m1=tickets</panel_attributes><additional_attributes>330;590;10;590;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1432</x><y>670</y><w>320</w><h>280</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=cycles
+m2=*</panel_attributes><additional_attributes>10;10;10;130;220;130;220;250;300;250</additional_attributes></element><element><id>Relation</id><coordinates><x>1523</x><y>1390</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>882</x><y>870</y><w>520</w><h>320</h></coordinates><panel_attributes>lt=-&gt;
+r2=area</panel_attributes><additional_attributes>500;10;420;10;420;160;100;160;100;260;10;260;10;300</additional_attributes></element><element><id>Relation</id><coordinates><x>512</x><y>1470</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>982</x><y>610</y><w>100</w><h>50</h></coordinates><panel_attributes>/User/
+-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1032</x><y>650</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1062</x><y>1070</y><w>130</w><h>50</h></coordinates><panel_attributes>/Notification/
+--
+-seen:boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1073</x><y>970</y><w>90</w><h>120</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+r1=0..*
+m1=notifications
+m2=client</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1292</x><y>1110</y><w>130</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+m2=0..*
+r1= performance
+m1=1</panel_attributes><additional_attributes>110;20;10;20;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>1322</x><y>670</y><w>70</w><h>110</h></coordinates><panel_attributes>lt=&lt;-&gt;
+m2=theater
+m1=admin
+r1=1</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1172</x><y>1170</y><w>160</w><h>30</h></coordinates><panel_attributes>AvailableNotification
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1172</x><y>1110</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1012</x><y>1190</y><w>130</w><h>30</h></coordinates><panel_attributes>PostponedNotification
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1082</x><y>1110</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1082</x><y>1320</y><w>150</w><h>50</h></coordinates><panel_attributes>If the performance is
+cancelled, the name will be
+kept (even if it is deleted)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1172</x><y>1240</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>1210</y><w>160</w><h>40</h></coordinates><panel_attributes>CancelledNotification
+--
+- performanceName:String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1152</x><y>1110</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>582</x><y>520</y><w>90</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+SearchBy
+--
+Director
+Title
+Author
+All</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1782</x><y>1420</y><w>140</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+AutomaticSelectionType
+--
+Centered
+CenteredLower
+CenteredUpper
+Furthest</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>922</x><y>540</y><w>200</w><h>180</h></coordinates><panel_attributes>lt=-&gt;
+m2=currentUser</panel_attributes><additional_attributes>180;10;10;10;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>502</x><y>1800</y><w>240</w><h>80</h></coordinates><panel_attributes>Interval
+--
+-start:Date
+-end:Date
+-
++belongsToInterval(d:LocalDate):boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>592</x><y>1710</y><w>70</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
+m1=disabled
+m2=0..1</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>952</x><y>1590</y><w>180</w><h>80</h></coordinates><panel_attributes>Location
+--
++ isDisabled():boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>712</x><y>1640</y><w>260</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>240;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>902</x><y>1170</y><w>110</w><h>440</h></coordinates><panel_attributes>lt=&lt;-
+r1=area</panel_attributes><additional_attributes>10;20;90;20;90;420</additional_attributes></element><element><id>Relation</id><coordinates><x>1122</x><y>1630</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+r1=location</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1363</x><y>1850</y><w>210</w><h>120</h></coordinates><panel_attributes>Reservation
+--
+- limitDate:LocalDate
+--
++ cancel()
++ confirm(p:PaymentMethod):boolean
++ isAvailable():boolean
++ updateReservation()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1432</x><y>1750</y><w>40</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2102</x><y>1237</y><w>220</w><h>60</h></coordinates><panel_attributes>PaymentMethod
+-
+/+payBack(t:Ticket):boolean/
++pay(t:Ticket):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2062</x><y>1097</y><w>160</w><h>100</h></coordinates><panel_attributes>CreditCard
+-
+- cardNumber:String 
+-
++pay(t:Ticket):boolean
++pay(t:Ticket,trace:boolean):boolean
++payback(t:Ticket)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2122</x><y>1187</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2232</x><y>1037</y><w>140</w><h>90</h></coordinates><panel_attributes>PassPay
+-
++pay(t:Ticket):boolean
++payback(t:Ticket)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2282</x><y>1117</y><w>30</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1532</x><y>860</y><w>830</w><h>200</h></coordinates><panel_attributes>lt=&lt;-
+r1=pass</panel_attributes><additional_attributes>10;20;810;20;810;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1702</x><y>1290</y><w>640</w><h>300</h></coordinates><panel_attributes>lt=-&gt;
+r2=#paymentMethod
+</panel_attributes><additional_attributes>10;280;530;280;530;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1292</x><y>1110</y><w>130</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+m2=0..*
+r1= performance
+m1=1</panel_attributes><additional_attributes>110;20;10;20;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>1112</x><y>1090</y><w>310</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+m2=0..*
+r1= performance
+m1=1</panel_attributes><additional_attributes>290;20;110;20;110;70;10;70;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1432</x><y>990</y><w>50</w><h>90</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=used
+m1=0..*</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1702</x><y>1636</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>160;10;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1863</x><y>1590</y><w>250</w><h>210</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+ITicketInfo
+--
++getTheaterName():String
++getEventName():String
++getEventDate():String
++getSeatNumber():String
++getPicture():String
++getIDTicket():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>650</y><w>140</w><h>100</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+ISearchOnly
+--
++is(event:Event):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>572</x><y>800</y><w>90</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+SearchOnly
+--
+CONCERT
+PLAY
+DANCE
+ALL</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>602</x><y>736</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2132</x><y>570</y><w>320</w><h>150</h></coordinates><panel_attributes>Stat
+-
+-revenue:double
+-purchasedWithPass:int
+-attendance:int
+-totalTickets:int
+-
++getAttendancePercentage():double
+_+sortStats(List&lt;Stat&gt;,StatComparator,reverse:boolean)_
+_+show(List&lt;Stat&gt;):String_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1972</x><y>580</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+r1=event</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1842</x><y>710</y><w>320</w><h>370</h></coordinates><panel_attributes>lt=&lt;-
+r1=event</panel_attributes><additional_attributes>10;350;10;320;300;320;300;10</additional_attributes></element><element><id>Relation</id><coordinates><x>782</x><y>0</y><w>1410</w><h>1020</h></coordinates><panel_attributes>lt=&lt;-
+r1=area</panel_attributes><additional_attributes>10;1000;20;10;1390;10;1390;570</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2462</x><y>680</y><w>120</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+StatComparator
+-
+REVENUE
+ATTENDANCE
+EVENT
+AREA
+PERFORMANCE</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>832</x><y>1970</y><w>210</w><h>80</h></coordinates><panel_attributes>Util
+--
++isPercentage(d:double):boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>832</x><y>1760</y><w>330</w><h>130</h></coordinates><panel_attributes>Point
+--
+-row:int
+-column:int
+-
+-barycenter(purchasedTickets:List&lt;Ticket&gt;):Point
+-getFurthestPoint(p:Performance,s:SittingArea):Point
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

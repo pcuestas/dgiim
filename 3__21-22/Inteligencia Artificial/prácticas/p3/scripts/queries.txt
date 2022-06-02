@@ -1,0 +1,39 @@
+sum_pot_prod([1,2,3],[3,4,5], 1, X).
+sum_pot_prod([1,2,3],[3,4,5], 2, X).
+sum_pot_prod([1,2,3],[3,4,5], -1, _).
+sum_pot_prod([1,2,3],[3,4,5,6], 3, _).
+segundo_penultimo([1,2], X, Y). 
+segundo_penultimo([1,2,3], X, Y). 
+segundo_penultimo([1,2,3,4], X, Y). 
+segundo_penultimo([1], X, Y).
+sublista(['a','b','c','d','e'], 2, 4, 'b', X). 
+sublista(['a','b','c','d','e'], 2, 4, 'f', X). 
+sublista(['a','b','c','d','e'], 5, 4, 'b', X).
+espacio_lineal(0, 1, 5, L).
+espacio_lineal(0, 1, 100, L).
+espacio_lineal(2,0,3,L).
+normalizar([3,4,5], X).
+normalizar([1,2,3,4,5], X).
+normalizar([-1,2,3,4,5], X).
+divergencia_kl([0.2, 0.3, 0.5], [0.2, 0.3, 0.5], D). 
+divergencia_kl([0.5, 0.3, 0.2], [0.2, 0.3, 0.5], D).
+divergencia_kl([0.98, 0.01, 0.01], [0.01, 0.01, 0.98], D). 
+divergencia_kl([0.99, 0.0, 0.01], [0.01, 0.01, 0.98], D).
+divergencia_kl([0.2,0.3,0.6], [0.1,0.5,0.4], D).
+producto_kronecker([[1,2],[3,4]], [[0,5], [6,7]], R).
+producto_kronecker([[-1,2],[3,4]], [[0,5], [6,7]], R).
+distancia_euclidea([1,4,3], [1,2,1], D).
+distancia_euclidea([1,2,1], [1,2,1], D).
+calcular_distancias([[1,2,3],[1,2,4],[2,3,1]], [[1,2,1], [1,2,5]], D).
+calcular_distancias([[1,2,3,4],[1,2,4,5],[2,3,1,5]], [[1,2,1,2], [1,2,5,2], [1,2,3,4], [5,6,7,8], [9,10,11,12]], D).
+predecir_etiquetas(['a','b','a','a','a','a','d'], 3, [[12,32,11,3,44,32,0], [1,2,3,4,5,6,7]],Etiquetas).
+predecir_etiquetas(['c','b','a','a','a','a','d'], 1, [[12,32,11,3,44,32,0], [1,2,3,4,5,6,7]],Etiquetas).
+predecir_etiqueta(['a','b','a','a','a','a','d'], 3, [12,32,11,3,44,32,0], Etiqueta).
+predecir_etiqueta(['a','b','a','a','a','a','d'], 1, [12,32,11,3,44,32,0], Etiqueta).
+calcular_K_etiquetas_mas_relevantes(['a','b','a','b','c','a','d'], 1, [12,32,11,3,1,2,0],Etiquetas).
+calcular_K_etiquetas_mas_relevantes(['a','b','a','a','a','a','d'], 3, [12,32,11,3,44,32,0],Etiquetas).
+calcular_etiqueta_mas_relevante(['a','c','c'], E).
+calcular_etiqueta_mas_relevante(['a','b','a','c','d','b','a','c','a'], E).
+calcular_contadores(['a','b','a','c','c','c'], L).
+k_vecinos_proximos([[2,3,1], [3,4,5], [2,3,2], [4,5,6], [6,5,8], [1,0,2], [3,4,3]],['a','b','a','c','c','a','b'], 1, [[10,7,5], [2,3,1]], Etiquetas).
+k_vecinos_proximos([[2,3,1], [3,4,5], [2,3,2], [4,5,6], [6,5,8], [1,0,2], [3,4,3]],['a','b','a','c','c','a','b'], 7, [[3,4,3], [10,10,10]], Etiquetas).

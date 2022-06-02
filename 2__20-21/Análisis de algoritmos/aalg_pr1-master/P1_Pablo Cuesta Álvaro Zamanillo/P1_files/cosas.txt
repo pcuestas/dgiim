@@ -1,0 +1,5 @@
+ - ejercicio 6
+ - rand
+
+ CUESTIONES: 
+    random number

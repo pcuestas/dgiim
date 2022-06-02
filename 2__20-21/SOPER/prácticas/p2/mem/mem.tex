@@ -1,0 +1,333 @@
+\documentclass{article}
+
+\usepackage[margin=2.5cm]{geometry}
+
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+
+\usepackage{tcolorbox}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{.2,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeblue}{rgb}{0,0.4,0.82}
+\definecolor{codeorange}{rgb}{0.94,0.34,0.0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{backcolourgray}{rgb}{0.92,0.92,0.92}
+\definecolor{codewhite}{rgb}{1,1,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolourgray},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{black},
+    stringstyle=\color{codeorange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    %numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    extendedchars=true
+    %, basicstyle=\footnotesize
+}
+\lstset{style=mystyle}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Sistemas Operativos. Práctica 2.}
+\lhead{Pablo Cuesta Sierra y Álvaro Zamanillo Sáez}
+\cfoot{\thepage}
+
+
+
+\setlength{\parskip}{0.15cm}
+
+
+
+\begin{document}
+
+\title{Sistemas Operativos. Práctica 2.}
+\author{Pablo Cuesta Sierra y Álvaro Zamanillo Sáez}
+%\date{}
+\maketitle
+
+\begin{tcolorbox}
+\tableofcontents
+\end{tcolorbox}
+
+
+
+\addcontentsline{toc}{subsection}{Ejercicio 1}
+\section*{Ejercicio 1}
+a) La lista de señales se obtiene con el comando: 
+
+\begin{lstlisting}[language=bash, 
+                   backgroundcolor=\color{black},
+                   keywordstyle=\color{green},
+                   basicstyle=\ttfamily\footnotesize\color{white}]
+ kill -l
+\end{lstlisting}
+
+b) \texttt{SIGKILL} corresponde al número $9$, y \texttt{SIGSTOP}, al número $19$. En este caso lo podemos ver directamente con el comando:
+\texttt{kill -l <Nombre\_de\_la\_señal>}.
+
+\addcontentsline{toc}{subsection}{Ejercicio 2}
+\section*{Ejercicio 2}
+
+a) Basta con añadir el siguiente código en el hueco señalado: 
+
+
+\begin{lstlisting}[language=C, frame=single]
+    if(kill(pid, sig) != 0){
+        perror("kill");
+        exit(EXIT_FAILURE);
+    }
+\end{lstlisting}
+
+b) Si mandamos la señal \texttt{SIGSTOP}, al intentar escribir en la terminal, el texto que se introduce por el teclado, no aparece. Cuando mandamos la señal \texttt{SIGCONT}, el texto que habíamos intentado insertar antes aparece de golpe y la terminal vuelve a la normalidad.
+De hecho, si escribimos algún comando y presionamos enter después de haberle mandado la señal \texttt{SIGSTOP}, en cuanto se mande la señal \texttt{SIGCONT}, se ejecuta el mismo de inmediato.
+
+\addcontentsline{toc}{subsection}{Ejercicio 3}
+\section*{Ejercicio 3}
+a) La llamada a \texttt{sigaction} no supone que se ejecute la función \texttt{manejador}, sino que establece que esa es la función que este proceso ejecutará para manejar la interrupción causada por la señal indicada en el primer argumento de \texttt{sigaction}.
+
+b) En este caso, la única señal que se bloquea durante la ejecución de \texttt{manejador} es la señal que ha provocado su ejecución: \texttt{SIGINT}. Esto se debe a que \texttt{act.sa\_mask} no contiene ninguna señal.
+
+c) Lo primero que aparece en pantalla es el \texttt{printf} del bucle. Luego el proceso se bloquea en la orden \texttt{sleep(9999)}, y cuando se manda la señal \texttt{SIGINT} con el teclado, aparece el \texttt{printf} de la función \texttt{manejador}. \texttt{sleep}, es interrumpida por la ejecución del manejador, por lo que se vuelve a ejecutar el \texttt{printf} del bucle.
+
+
+d) Si modificamos el programa para que no capture \texttt{SIGINT}, cuando pulsemos \texttt{Ctrl}$+$\texttt{C}, terminará la ejecución. Esto se debe a que si un proceso recibe una señal y no la captura, se ejecutará el manejador por defecto, el cual, en general, termina el proceso.
+
+e) Las señales \texttt{SIGKILL} y \texttt{SIGSTOP} no pueden ser capturadas, ya que sólo las puede manejar el núcleo. Si no fuera así, el sistema operativo no tendría posibilidad de parar un proceso que no responde. 
+
+\addcontentsline{toc}{subsection}{Ejercicio 4}
+\section*{Ejercicio 4}
+a) La gestión de la señal se realiza cuando el programa llega al bloque \texttt{if(got\_signal)\{...\}}
+
+b) Porque el manejador no puede recibir ningún argumento (aparte de la señal), por tanto la variable que indica que se ha recibido la señal tiene que ser global.
+
+\addcontentsline{toc}{subsection}{Ejercicio 5}
+\section*{Ejercicio 5}
+a) Si se envia SIGUSR1 o SIGUSR2, no ocurre nada, ya que las señales están bloqueadas y, por ende, quedan pendientes. En cambio, si se envía la señal SIGINT, el proceso finaliza puesto que esta no está bloqueada.
+
+b) Cuando acaba la espera, finaliza el proceso. No se imprime el mensaje. Si mandamos una de estas señales que están bloqueadas, en cuanto finaliza la espera y se desbloquean las señales, que estaban pendientes, se lleva a cabo la rutina que la maneja, que termina el programa sin que se imprima el mensaje de despedida.
+
+\addcontentsline{toc}{subsection}{Ejercicio 6}
+\section*{Ejercicio 6}
+a) Si se le manda al proceso la señal \texttt{SIGALRM} antes de que terminen los 10 segundos, ocurre lo mismo que si se acabara de terminar el tiempo, se ejecuta el manejador establecido por \texttt{sigaction} (que finaliza el proceso tras imprimir un mensaje).
+
+b) Si no se ejecuta \texttt{sigaction}, al recibir la señal \texttt{SIGALRM}, se atiende con la rutina por defecto, que imprime el mensaje `\texttt{Temporizador}' y finaliza el proceso.
+
+\addcontentsline{toc}{subsection}{Ejercicio 7}
+\section*{Ejercicio 7}
+\texttt{sem\_unlink} se puede llamar en cualquier momento después de que se cree el semáforo. Como pone en el manual, \texttt{sem\_unlink} borra el nombre del semáforo, de modo que si algún otro proceso quiere abrir un semáforo con ese mismo nombre desupés de que se llame a \texttt{sem\_unlink}, tendrá que crearlo. Sin ambargo, estos dos procesos (padre e hijo) tendrán acceso a este semáforo hasta que lo cierren. 
+
+
+\addcontentsline{toc}{subsection}{Ejercicio 8}
+\section*{Ejercicio 8}
+a) Si se realiza una llamada a \texttt{sem\_wait} y el semáforo está a cero, esta llamada bloquea el proceso hasta que el semáforo aumente o hasta que algún manejador interrumpa esta espera. Esto último es lo que pasa en este caso. 
+
+b) Como mandamos que se ignore la señal, ningún manejador interrumpe la llamada a \texttt{sem\_wait}. En este caso, la función \texttt{sem\_wait} no llega a devolver, por lo que no se ejecutará la orden \texttt{printf}.
+
+c) Habría que sustituir la línea en la que se llama a \texttt{sem\_wait} por: \texttt{while(sem\_wait(sem)==-1);}. De este modo, si un manejador interrumpe la llamada, la función devolverá error (-1) y se volverá a realizar la espera.
+
+
+\addcontentsline{toc}{subsection}{Ejercicio 9}
+\section*{Ejercicio 9}
+La siguiente sería una posible solución. Ambos semáforos se inicializan a $0$ en el código dado, por lo que cualquier \texttt{sem\_wait} que se realize a cada uno de ellos por primera vez bloqueará el proceso hasta que el otro le de permiso a continuar (con \texttt{sem\_post}).
+
+En resumen, cuando el padre tiene que esperar algo del hijo, llama a \texttt{sem\_wait(sem1)} y cuando le tiene que dar permiso al hijo a continuar, llama a \texttt{sem\_post(sem2)}. El hijo incrementa (\texttt{sem\_post}) el semáforo \texttt{sem1} cuando ya da permiso al padre a continuar, y decrementa (\texttt{sem\_wait}) el semáforo \texttt{sem2} cuando espera que el padre haga algo.
+
+%\begin {tcolorbox}[colback=green!5!white]
+\lstinputlisting[language=C, firstline=32, lastline=54, firstnumber=32, numbers=left,frame=single]
+{../src/conc_alternate.c}
+%\end{tcolorbox}
+
+
+\pagebreak
+
+\addcontentsline{toc}{subsection}{Ejercicio 10}
+\section*{Ejercicio 10}
+
+Para mencionar los procesos, usaremos la notación del esquema que aparece en el enunciado: 
+
+\noindent$P_1$, $P_2$, $\dots$ , $P_\texttt{\scriptsize{NUM\_PROC}}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% A %%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsubsection}{a) Creación de los procesos}
+\subsection*{a) Creación de los procesos} 
+
+La parte de creación de procesos se realiza en un bucle \textit{for}. Como queremos que los procesos se lancen en cascada, en cada iteración del bucle, el proceso padre sale y el hijo se queda (una iteración más) para realizar una nueva llamada a \texttt{fork()}. De este manera conseguimos tener \texttt{NUM\_PROC} procesos, cada uno padre del siguiente (excepto el último).
+
+Como los manejadores se heredan, las llamadas a \texttt{sigaction} las realizamos al inicio del todo. De esta forma todos los procesos tienen manejadores para las señales \texttt{SIGUSR1}, \texttt{SIGTERM}, \texttt{SIGALRM} y \texttt{SIGINT}. No obstante, queremos que la señal \texttt{SIGINT} solo la pueda recibir el proceso 1, por eso el proceso 2 la añade al \textit{set} de señales a bloquear en \texttt{sigsuspend}. Este \textit{set} es una variable de tipo \texttt{sigset\_t}, por lo que los sucesores de $P_2$ (es decir, todos los procesos que no son $P_1$) la heredan. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% B C %%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsubsection}{b) y c) Bucle de los ciclos}
+\subsection*{b) y c) Bucle de los ciclos}
+
+Hemos hecho una función que contiene el bucle que cada proceso hace para los ciclos. En cada iteración, se hace una llamada a \texttt{sigsuspend}, donde el proceso se bloquea hasta que recibe una señal. El manejador modificará una de las variables globales (\texttt{got\_end} o \texttt{got\_sigusr1}), por lo que, dependiendo de cuál se reciba, se hará una de las dos posibles acciones: mandar \texttt{SIGUSR1} al siguiente proceso e imprimir una cadena por \textit{stdout}, o salir del bucle y mandar \texttt{SIGTERM} al siguiente proceso.
+
+Todos los procesos, al salir de la función de los ciclos, cierran el semáforo, realizan un \texttt{wait(NULL)} -- ya que, como mucho, cada proceso tiene solamente un hijo -- y terminan.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% D %%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsubsection}{d) Protección de zonas críticas}
+\subsection*{d) Protección de zonas críticas} 
+
+Para que los procesos no hagan esperas activas, utilizamos \texttt{sigsuspend} en cada iteración del bucle, con la cual los procesos se bloquean hasta que reciben una señal. Tenemos que evitar, por tanto, que las señales se reciban cuando el proceso no ha llegado todavía a \texttt{sigsuspend}. Para conseguir esto, antes de establecer los manejadores en el proceso inicial (y antes de la creación de cualquier otro proceso), bloqueamos estas cuatro señales, guardando la antigua máscara para después utilizarla en la llamada a \texttt{sigsuspend}, donde sí permitimos estas señales. Sin embargo, los procesos que no son $P_1$ no deben recibir \texttt{SIGINT}, por lo que en cuando se crea $P_2$, añadimos a la antigua máscara esta señal, de modo que será bloqueada incluso dentro de \texttt{sigsuspend} para todos los procesos distintos del primero.
+
+Nos aseguramos de que en cada iteración del bucle de los ciclos se recibe únicamente una señal bloqueando dentro del manejador las señales \texttt{SIGUSR1}, \texttt{SIGALRM}, \texttt{SIGINT} y \texttt{SIGTERM}. Esto es porque \texttt{sigsuspend} no reestablece la máscara del proceso hasta que el manejador haya terminado. 
+
+Si no bloqueáramos estas señales, sería posible que, durante la ejecución de un manejador, se recibiera otra de ellas. Sin embargo, cada iteración del bucle solo trata una, y el proceso se bloquearía de nuevo en \texttt{sigsuspend} sin haber tratado una señal, la cual se estaría perdiendo.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% E %%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsubsection}{e) Temporización}
+\subsection*{e) Temporización}
+
+Para la temporización que se propone, tenemos que llamar a \texttt{alarm(10)} antes de que el primer proceso cree a su hijo. En general, los hijos no heredan alarmas, por lo que esta alarma solamente la recibirá el primer proceso. Además, tenemos que establecer un manejador para la señal \texttt{SIGALRM}, y darle en el manejador el mismo tratamiento que a \texttt{SIGINT}, ya que el resultado de recibir cualquiera de estas dos señales es el mismo. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% F %%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsubsection}{f) Análisis de la ejecución}
+\subsection*{f) Análisis de la ejecución}
+
+Dentro de cada ciclo los procesos imprimen desordenados. No obstante, los \texttt{printf} de ciclos distintos no se intercalan. No hay ninguna garantía de que vaya a ocurrir esto ya no que estamos imponiendo ninguna condición que obligue a un proceso a esperar a otro. 
+
+De hecho, cuando añadimos una espera aleatoria vemos que ahora sí se empiezan a intercalar mensajes de ciclos distintos. Con esta nueva ejecución confirmamos lo dicho de que no había garantía alguna del orden de ejecución (y por ende del orden en el que aparecen los mensajes).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% G %%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsubsection}{g) Sincronización con semáforos}
+\subsection*{g) Sincronización con semáforos}
+
+La sincronización con semáforos se encarga únicamente de que el orden de impresión por \textit{stdout} sea el deseado.
+
+Solamente es necesario emplear un semáforo binario de forma que antes de que un proceso mande la señal \texttt{SIGUSR1} al siguiente e imprima en \textit{stdout}, tenga que esperar hasta que el proceso anterior haya terminado de imprimir en stdout. Debido a que un proceso solamente baja este semáforo cuando el anterior le ha mandado ya \texttt{SIGUSR1}, un semáforo binario es suficiente para sincronizar la impresión en  \textit{stdout} de todos los procesos.
+
+El semáforo lo inicializamos a $1$, para que $P_1$ pueda bajarlo por primera vez.
+
+
+\end{document}
+
+
+%%%%%%%%%%%%%
+\begin{lstlisting}[language=C, texcl=true, numbers=left]
+\end{lstlisting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{Verbatim}[frame=single]
+cosas
+\end{Verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\caption{Search 8.}
+\bigskip
+\includegraphics[scale=0.4]{ser8}
+\centering
+\label{fig:ser8}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{magenta},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}[language=C]
+bool findKey(const char * book_id, const char *indexName, int * nodeIDOrDataOffset){
+    FILE *pf=NULL;
+    int pos, comp;
+    Node node;
+    bool found = false;
+    char b_id[5], search[5];
+
+    if(!indexName)
+        return false;
+
+    if((pf=fopen(indexName,"rb"))==NULL)
+        return false;
+
+    memcpy(search, book_id, PK_SIZE);
+    search[PK_SIZE] = '\0';
+    /*read the root's position*/
+    fread(&pos, sizeof(int), 1, pf);
+
+    if(pos==-1){/*empty*/
+        *nodeIDOrDataOffset=-1;
+    }
+
+    while(pos != -1 && found == false){
+        /*find the node's offset in the file*/
+        fseek(pf, INDEX_HEADER_SIZE+pos*sizeof(Node), SEEK_SET);
+        /*read the node*/
+        fread(&node, sizeof(Node), 1, pf);
+        memcpy(b_id, node.book_id, PK_SIZE);
+        b_id[PK_SIZE] = '\0';
+        /*compare the primary key*/
+        comp=strcmp(search, b_id);
+        
+        if(comp < 0){
+            if(node.left==-1)/*not found*/
+                (*nodeIDOrDataOffset) = pos;
+            pos = node.left;            
+        }
+        else if(comp > 0){
+            if(node.right==-1)/*not found*/
+                (*nodeIDOrDataOffset) = pos;
+            pos = node.right;            
+        }
+        else{/*found*/
+            (*nodeIDOrDataOffset) = node.offset;
+            found = true;
+        }
+    }
+    fclose(pf);
+    return found;
+}
+
+\end{lstlisting}
+

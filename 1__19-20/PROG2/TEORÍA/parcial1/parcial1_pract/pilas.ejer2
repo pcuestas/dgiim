@@ -1,0 +1,68 @@
+/*cambio de representación de un número decimal */
+
+/* pseudocódigo scd
+String decimal2base(Integer number, Integer base):
+
+    s=stack_init();
+
+    while number >= base :
+		resto = number%base
+		number = number/base
+		stack_push(s,resto)
+		
+	stack_push(s, number)
+	
+	str=string_init(stack_size(s)) 
+	
+	i=0
+	
+	while(stack_isEmpty(s)==FALSE):
+	    ele=stack_pop(s)
+	    str[i]= '0' + ele
+	    free(ele)
+	    i=i+1
+	    
+	str[i]=EOS
+	stack_free(s)
+	return str
+*/
+
+/*código en c con control de errores*/
+
+String *decimal2base(int number, int base){
+    Stack *S=NULL;
+    int resto, i;
+    Status st=OK;
+    char *str=NULL;
+    int *ele=NULL;
+    
+    s=stack_init(.........);
+    if(!s)return NULL;
+
+    while (number >= base && st==OK){
+		resto = number % base;
+		number = number / base;
+		st=stack_push(s, &resto);
+	}
+	
+	if(st==ERROR || stack_push(s, &number)==ERROR) return NULL;
+	
+	str=malloc(sizeof(char)*(stack_size(s)+1));
+	if(!str){
+	    stack_free(s);
+	    return NULL;
+	} 
+	
+	i=0;
+	
+	while(stack_isEmpty(s)==FALSE){
+	    ele=stack_pop(s);
+	    str[i++]= ('0' + ele);
+	    free(ele);
+	}
+	    
+	str[i]='\0';
+	
+	stack_free(s);
+	return str;
+}

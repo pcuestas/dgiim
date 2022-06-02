@@ -1,0 +1,4 @@
+Max depth	Minimax mean	Alpha-beta mean	Speedup
+2	2.50623	1.97239	1.2706
+3	20.4784	9.16699	2.2339
+4	407.619	86.1799	4.7298

@@ -1,0 +1,29 @@
+Circuit: * C:\Users\pablo\OneDrive - Universidad Autonoma de Madrid\Asignaturas\CIREL\Prácticas\P7prev\p7_prev1_d.asc
+
+.OP point found by inspection.
+.step r=100
+.step r=220
+.step r=470
+.step r=1000
+.step r=2200
+.step r=4700
+.step r=10000
+.step r=22000
+
+Date: Tue Nov 24 20:43:33 2020
+Total elapsed time: 0.459 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3319
+traniter = 3319
+tranpoints = 1563
+accept = 1553
+rejected = 10
+matrix size = 3
+fillins = 0
+solver = Normal
+Matrix Compiler1:       3 opcodes  0.0/[0.0]/0.0
+Matrix Compiler2:      15 opcodes  0.0/[0.0]/0.0
+

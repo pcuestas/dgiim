@@ -1,0 +1,82 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>660</x><y>196</y><w>210</w><h>110</h></coordinates><panel_attributes>Questionnaire
+--
+- introText: String
+- estimatedNumMinutes: double
+--
++ navigate(Answer a): Question
++ deviationSeconds(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>426</y><w>150</w><h>80</h></coordinates><panel_attributes>/Question/
+--
+- text: String
+/- answers: Answer []/
+-
++ display()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>556</y><w>150</w><h>70</h></coordinates><panel_attributes>OpenEndedQuestion
+--
+- charLimit: int = 128
+-
++ display()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>650</x><y>496</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>646</y><w>150</w><h>70</h></coordinates><panel_attributes>MultipleChoiceQuestion
+--
+- noOptionFlag: boolean
+-
++ display()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>716</y><w>130</w><h>60</h></coordinates><panel_attributes>SingleChoiceQuestion
+-
++ display()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>606</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>860</x><y>606</y><w>30</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>710</x><y>536</y><w>170</w><h>80</h></coordinates><panel_attributes>/ChoiceQuestion/
+--
+- randomOrder: boolean
+-
++ display()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>496</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>406</y><w>180</w><h>100</h></coordinates><panel_attributes>/Answer/
+-
+/- question: Question/
+- startDate: Timestamp
+- endDate: Timestamp
+-
++ getSecondsTotal(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>566</y><w>140</w><h>60</h></coordinates><panel_attributes>OpenEndedAnswer
+--
+- answer: String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>576</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-&gt;
+m1=1
+r1=question
+
+r2=*
+m2=answers</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>296</y><w>80</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=questions
+m2=1..*
+</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>236</y><w>220</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=answersByUsers
+m2=*
+m1=questionnaire
+r1=1</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>496</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>676</y><w>140</w><h>30</h></coordinates><panel_attributes>MultipleChoiceAnswer
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>666</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=&lt;-&gt;
+m1=1
+r1=question
+
+r2=*
+m2=answers</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>726</y><w>140</w><h>30</h></coordinates><panel_attributes>SingleChoiceAnswer
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>726</y><w>350</w><h>50</h></coordinates><panel_attributes>lt=&lt;-&gt;
+m1=1
+r1=question
+
+r2=*
+m2=answers</panel_attributes><additional_attributes>330;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>446</y><w>120</w><h>320</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10;10;300;100;300</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>466</y><w>110</w><h>250</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10;10;230;90;230</additional_attributes></element><element><id>UMLClass</id><coordinates><x>980</x><y>546</y><w>110</w><h>70</h></coordinates><panel_attributes>Option
+--
+- text: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>546</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+m1=2..*
+r1=options</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>456</y><w>280</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+r1=conditionalNextQuestion</panel_attributes><additional_attributes>10;20;260;20;260;90</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>606</y><w>610</w><h>200</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+r1=optionsSelected</panel_attributes><additional_attributes>510;10;510;180;100;180;100;110;10;110;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>606</y><w>720</w><h>210</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+r1=optionSelected</panel_attributes><additional_attributes>620;10;620;190;10;190;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>216</y><w>180</w><h>90</h></coordinates><panel_attributes>AnswerToQuestionnaire
+-
+- startDate: Timestamp
+- endDate: Timestamp
+-
++ getMinutesTotal(): double </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>296</y><w>70</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=answers
+m2=*
+</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>326</y><w>150</w><h>30</h></coordinates><panel_attributes>QuestionnairesApp</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>860</x><y>226</y><w>200</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=questionnaires
+m2=*
+</panel_attributes><additional_attributes>180;100;180;20;10;20</additional_attributes></element></diagram>

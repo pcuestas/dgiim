@@ -1,0 +1,129 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>479</y><w>270</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+PollutionIndex
+--
++ A
++ B
++ C
+-
+_- DATEA: int = 2018_
+_- DATEB: int = 2010_
+--
+_+ getPollutionIndex(int year): PollutionIndex_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>419</y><w>370</w><h>260</h></coordinates><panel_attributes>/Vehicle/
+--
+- model String
+- purchaseYear: int
+- plate: String
+--
++ Vehicle (mod: String, a: int, pl: String, o: Owner) {constructor}
++ Vehicle (mod: String, a: int, pl: String) {constructor}
+/+ numWheels(): int/
+/+ necessaryPermit(): PermitKind/
++ getPollutionIndex(): PollutionIndex
++ toString(): String
++ setDriver(p: Person): boolean
++ getDriver(): Person
++ hasPermit(p: Person): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>759</y><w>420</w><h>150</h></coordinates><panel_attributes>Car
+--
+- diesel: boolean
+--
++ Car (mod: String, a: int, pl: String, diesel:boolean, o: Owner) {constructor}
++ Car (mod: String, a: int, pl: String, diesel: boolean) {constructor}
++ numWheels(): int
++ necessaryPermit(): PermitKind
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>669</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>759</y><w>430</w><h>150</h></coordinates><panel_attributes>Motorcycle
+--
+- electric: boolean
+--
++ Motorcycle (mod: String, a: int, pl: String, el: boolean, o: Owner) {constructor}
++ Motorcycle (mod: String, a: int, pl: String, el: boolean) {constructor}
++ numWheels(): int
++ necessaryPermit(): PermitKind
++ getPollutionIndex(): PollutionIndex
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>669</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>959</y><w>390</w><h>150</h></coordinates><panel_attributes>Truck
+--
+- numAxles: int
+--
++ Truck (mod: String, a: int, pl: String, axles: int, o: Owner) {constructor}
++ Truck (mod: String, a: int, pl: String, axles: int) {constructor}
++ numWheels(): int
++ necessaryPermit(): PermitKind
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>669</y><w>30</w><h>310</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;290</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1240</x><y>749</y><w>220</w><h>160</h></coordinates><panel_attributes>License
+--
+_- count: int_
+- id: int
+- points: int
+-
++ setOwner(p: Person): boolean
++ addPermit(k: PermitKind): boolean
++ subtractPoints(p: int): int
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>429</y><w>330</w><h>50</h></coordinates><panel_attributes>lt=&lt;-&gt;
+r2=vehicles
+m2=*
+r1=owner
+
+m1=0..1</panel_attributes><additional_attributes>310;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>569</y><w>160</w><h>100</h></coordinates><panel_attributes>Person
+--
+- age:int
+--
++canOwnVehicle():boolean
++toString():String
++getDefaultDriver():Person</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1070</x><y>509</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1240</x><y>579</y><w>150</w><h>70</h></coordinates><panel_attributes>Company
+--
++toString():String
++getDefaultDriver():Person</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1260</x><y>509</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>609</y><w>230</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=driver
+m1=0..1</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1110</x><y>589</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=responsible
+m1=1</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1060</x><y>399</y><w>220</w><h>120</h></coordinates><panel_attributes>/Owner/
+--
+- name:String
+-
++canOwnVehicle():boolean
++addVehicle(v:Vehicle)
+/+getDefaultDriver():Person/
++toString():String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>165</y><w>220</w><h>100</h></coordinates><panel_attributes>Fine
+--
+- plate: String
+- description: String
+- points: int
+-
++ toString(): String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1230</x><y>1009</y><w>240</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+PermitKind
+--
++ A(18)
++ B(18)
++ C1(23)
+--
+- minAge: int
+--
++ canHavePermit(p: Person): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>225</y><w>190</w><h>80</h></coordinates><panel_attributes>FineProcessor
+--
+_- handleFine(f: Fine, v: Vehicle)_
++ process(fines: List&lt;Fine&gt;)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1070</x><y>165</y><w>220</w><h>100</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+FineReader
+--
+_+ read(file: String): List&lt;Fine&gt;_
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1080</x><y>655</y><w>180</w><h>180</h></coordinates><panel_attributes>lt=&lt;-&gt;
+r1=license
+m1=0..1
+r2=owner
+m2=0..1</panel_attributes><additional_attributes>160;150;10;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>289</y><w>70</w><h>150</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=vehicles
+m1=0..*</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1320</x><y>899</y><w>70</w><h>130</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=permits
+m1=0..*</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element></diagram>

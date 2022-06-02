@@ -1,0 +1,65 @@
+/* Prototipo(s) y definiciones de otra(s) funcion(es) necesarias */
+
+
+/* comprueba que todo subárbol es vacío o que no tiene hijos derechos: */
+Bool is_left_list(BTNode *pn);
+
+/* comprueba que todo subárbol es vacío o que no tiene hijos izquierdos: */
+Bool is_right_list(BTNode *pn);
+
+/* definición de estas funciones */
+
+Bool is_left_list(BTNode *pn){
+    /* si el nodo es vacío, hemos llegado al
+     * final de la cadena, todo ha ido bien - caso base*/
+    if(!pn)
+        return TRUE;
+        
+    /* si se encuentra un hijo derecho, devolvemos falso,
+     * no es un subárbol sin hijos derechos*/
+    else if(right(pn) != NULL)
+        return FALSE;
+        
+    /* caso general de recursión, todo ha ido bien hasta aquí,
+     * comprobamos si el subárbol izquierdo es correcto*/
+    else
+        return is_left_list(left(pn));
+}
+
+Bool is_right_list(BTNode *pn){
+    /* si el nodo es vacío, hemos llegado al
+     * final de la cadena, todo ha ido bien - caso base*/
+    if(!pn)
+        return TRUE;
+        
+    /* si se encuentra un hijo izquierdo, devolvemos falso,
+     * no es un subárbol sin hijos izquierdos */
+    else if(left(pn) != NULL)
+        return FALSE;
+        
+    /* caso general de recursión, todo ha ido bien hasta aquí,
+     * comprobamos si el subárbol derecho es correcto*/
+    else
+        return is_right_list(right(pn));
+}
+
+
+/* función principal */
+
+Bool tree_isV (BSTree *tree) {
+    /*si el árbol no existe, consideramos que ha habido un error*/
+    if(!tree) return FALSE;
+
+    /*si el árbol está vacío, es un árbol en V */
+    if(!root(tree)) return TRUE;
+
+    /* devolvemos TRUE si y solo si el subárbol izquierdo es
+     * una lista de nodos a la izquierda (sin hijos derechos)
+     * y el subárbol derecho una lista de nodos
+     * a la derecha (sin hijos izquierdos)*/
+    return (is_left_list(left(root(tree))) && is_right_list(right(root(tree))));
+
+
+}
+
+

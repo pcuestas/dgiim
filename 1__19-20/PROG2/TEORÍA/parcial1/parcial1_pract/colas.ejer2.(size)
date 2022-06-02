@@ -1,0 +1,32 @@
+//ejercicio 2 de colas.
+//fución derivada size
+
+int queue_size(Queue *q){
+    int count=0;
+    Queue *aux=NULL;
+    Element *ele=NULL;
+    Status st=OK
+    
+    if(!q) return -1;
+    
+    if(!(aux=queue_init()))return -1;
+    
+    while(queue_isEmpty(q)==FALSE && st==OK){
+        ele=queue_extract(q);
+        st=queue_insert(aux,ele);
+        element_free(ele);
+        count += 1;
+    }
+    
+    while(queue_isEmpty(aux)==FALSE && st==OK){
+        ele=queue_extract(aux);
+        st=queue_insert(q,ele);
+        element_free(ele);
+    }  
+    
+    if(st==ERROR) return -1;
+    
+    queue_free(aux);
+    
+    return count;
+}

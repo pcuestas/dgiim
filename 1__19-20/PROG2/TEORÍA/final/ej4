@@ -1,0 +1,21 @@
+void *list_extractFrom(List *pl, int pos) {
+    Node *pn = NULL, *npos = NULL;
+    void *ele;
+    int i;
+    
+    if(!pl || !pl->first) return NULL;
+    
+    for (i=0, pn=pl->first; i<(pos-1) && pn->next != NULL; i++, pn=pn->next);
+    
+    if(i != (pos-1)) /*comprobamos si pn es el nodo anterior al que está en la posición pos*/
+        return NULL; /*esto significa que no hay un nodo en esta posición porque la lista no es tan larga*/
+        
+    /*eliminamos el nodo en pos*/
+    npos = pn->next;
+    pn->next = npos->next;
+    ele = npos->info;
+    npos->info = NULL;
+    free(npos);
+    
+    return ele;
+}

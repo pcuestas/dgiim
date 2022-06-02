@@ -1,0 +1,7 @@
+## class diagram
+ * Prices ?
+ * Pass already points to an area
+ * We already keep track of the performances used in each pass
+ * The reduction of a cycle is for each area?? - not said in requirements
+ * Reference for client is not missing in Ticket
+ * What about postponed - reservation subclass

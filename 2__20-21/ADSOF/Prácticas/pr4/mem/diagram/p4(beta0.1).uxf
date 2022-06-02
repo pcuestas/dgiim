@@ -1,0 +1,150 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>390</x><y>1206</y><w>310</w><h>390</h></coordinates><panel_attributes>/Vehicle/
+--
+- id: int
+# actualPosition: double = 0.0
+# maxSpeed: double
+- canMove: boolean = true
+- components: List&lt;IComponent&gt; = new ArrayList&lt;&gt;()
+_- countIDs: int = 1_
+--
+/+ getVehicleTypeName(): String/
+/+ move()/
++ toString(): String
++ distance(w: Vehicle): double
++ getActualPosition(): double
++ setActualPosition(newPosition: double)
++ canMove(): boolean
++ setCanMove(newMovement: boolean)
++ getMaxSpeed(): double
++ getName(): String
++ addComponent(c: IComponent) throws InvalidComponentException
++ getComponents(): List&lt;IComponent&gt;
++ repairComponents()
++ canAttack(): boolean
+- bananaDispenser(): BananaDispenser
++ attack(w: Vehicle)
+- randomComponent(): IComponent
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>1142</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>976</y><w>230</w><h>160</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IComponent/
+--
++ isDamaged(): boolean
++ setDamaged(damage: boolean)
++ getName(): String
++ costRepair(): int
++ getVehicle(): IVehicle
++ isCritical(): boolean
++ repair()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>10</x><y>722</y><w>140</w><h>70</h></coordinates><panel_attributes>How do we represent
+"throws exception" in
+UML?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>230</x><y>1110</y><w>160</w><h>60</h></coordinates><panel_attributes>Put the @overwrites of
+getActualPosition and
+setActualPosition or not?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>1220</y><w>200</w><h>70</h></coordinates><panel_attributes>Car
+--
++ getVehicleTypeName(): String
++ move()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>1350</y><w>250</w><h>80</h></coordinates><panel_attributes>Motorcycle
+--
++ getVehicleTypeName(): String
++ move()
++ addComponent(c: IComponent) throws InvalidComponentException
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>1490</y><w>200</w><h>70</h></coordinates><panel_attributes>Truck
+--
++ getVehicleTypeName(): String
++ move()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>308</x><y>1236</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>1506</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>328</x><y>1366</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>440</y><w>120</w><h>60</h></coordinates><panel_attributes>RaceException
+--
+/+ toString(): String/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>540</y><w>100</w><h>40</h></coordinates><panel_attributes>Exception</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>576</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;10;12;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>350</y><w>120</w><h>60</h></coordinates><panel_attributes>RaceSmallException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>340</y><w>130</w><h>60</h></coordinates><panel_attributes>NumVehiclesException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>350</y><w>140</w><h>60</h></coordinates><panel_attributes>InvalidSpeedException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>688</x><y>676</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;10;12;60</additional_attributes></element><element><id>Relation</id><coordinates><x>568</x><y>406</y><w>130</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>112;50;20;50;12;10</additional_attributes></element><element><id>Relation</id><coordinates><x>788</x><y>396</y><w>110</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;60;90;60;92;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>20</y><w>240</w><h>200</h></coordinates><panel_attributes>Race
+--
+- length: double
+- vehicles: List&lt;Vehicle&gt;
+--
++ toString(): String
+- vehicleToStringInRace(v: Vehicle): String
++ simulate()
+- attackingPhase()
+- getNextVehicle(v: Vehicle): Vehicle
+- repairingPhase()
+- positionUpdating():
+- Vehicle findWinner():</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>80</y><w>350</w><h>120</h></coordinates><panel_attributes>RaceReader
+--
+_+ read(file: String): Race_
+_- createVehiclesFromFileFields(fields: String[]): List&lt;Vehicle&gt;_
+_- createComponent(string: String, v: Vehicle): IComponent_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>740</x><y>0</y><w>160</w><h>40</h></coordinates><panel_attributes>Include the constructors?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>620</y><w>130</w><h>60</h></coordinates><panel_attributes>ComponentException
+--
+/+ toString(): String/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>740</y><w>160</w><h>60</h></coordinates><panel_attributes>InvalidComponentException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>740</y><w>170</w><h>70</h></coordinates><panel_attributes>InvalidComponentName
+--
+- name: String
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1010</x><y>650</y><w>150</w><h>70</h></coordinates><panel_attributes>InvalidComponentName
+has a constructor. Do we
+include it?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>496</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;40;12;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>1200</y><w>230</w><h>190</h></coordinates><panel_attributes>/Component/
+--
+- vehicle: Vehicle
+- turnsLeftUntilRepaired: int = 0
+- id: int
+_- countIDs: int = 0_
+--
++ isDamaged(): boolean
++ setDamaged(damage: boolean)
++ repair()
++ toString(): String
++ isCritical(): boolean
++ int compareTo(Component c):</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>966</y><w>230</w><h>180</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IVehicle/
+--
++ getActualPosition(): double
++ setActualPosition(newPosition: double)
++ canMove(): boolean
++ setCanMove(newMovement: boolean)
++ getMaxSpeed(): double
++ getName(): String
++ addComponent(c: IComponent) throws InvalidComponentException
++ getComponents(): List&lt;IComponent&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>880</x><y>1510</y><w>220</w><h>70</h></coordinates><panel_attributes>public abstract class Component
+implements IComponent, 
+                   Comparable&lt;Component&gt;
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>1132</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLNote</id><coordinates><x>880</x><y>1600</y><w>220</w><h>50</h></coordinates><panel_attributes>Component has a protected
+constructor
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>880</x><y>1670</y><w>220</w><h>50</h></coordinates><panel_attributes>Start including setters/getters?
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>880</x><y>1740</y><w>220</w><h>50</h></coordinates><panel_attributes>Should non-static variables initialised
+with a value have the "= x"?
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1100</x><y>852</y><w>150</w><h>100</h></coordinates><panel_attributes>Don't forget the  "-&gt;" 
+of functions returning
+a class we made!! 
+They shouldn't be written
+in the "function section" 
+but on the arrows
+bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1160</x><y>1110</y><w>200</w><h>80</h></coordinates><panel_attributes>BananaDispenser
+--
++ getName(): String
++ costRepair(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1048</x><y>1186</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;30;130;30;130;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1160</x><y>1240</y><w>200</w><h>100</h></coordinates><panel_attributes>CriticalComponent
+--
+- name: String
+--
++ getName(): String
++ costRepair(): int
++ isCritical(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1420</x><y>950</y><w>280</w><h>60</h></coordinates><panel_attributes>ComponentComparator
+--
++ compare(o1: Component, o2: Component): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1456</x><y>840</y><w>240</w><h>70</h></coordinates><panel_attributes>public class ComponentComparator
+  implements Comparator&lt;Component&gt;
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1048</x><y>1276</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1160</x><y>1390</y><w>200</w><h>80</h></coordinates><panel_attributes>Window
+--
++ getName(): String
++ costRepair(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>0</x><y>852</y><w>190</w><h>60</h></coordinates><panel_attributes>With a dotted line with &lt;&lt;throws&gt;&gt;.
+Do we put in the line the name
+of the function that throws it?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>810</y><w>130</w><h>40</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1048</x><y>1356</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10;130;30</additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>386</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;50;12;10</additional_attributes></element><element><id>Relation</id><coordinates><x>778</x><y>676</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;10;12;60</additional_attributes></element></diagram>

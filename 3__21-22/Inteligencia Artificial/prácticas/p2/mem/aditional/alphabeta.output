@@ -1,0 +1,64 @@
+
+Let's play SimpleGameTree!
+
+A
+
+It is the turn of player 'Minimax + alpha-beta 1' [Player 1].
+
+A: [-inf, inf]
+B: [-inf, inf]
+E: [4, inf]
+B: [-inf, 4]
+F: [3, 4]
+B: [-inf, 3]
+A: [3, inf]
+C: [3, inf]
+G: [3, inf]
+K: [3, 2]
+G: [3, inf]
+L: [3, 1]
+G: [3, inf]
+C: [3, 3]
+A: [3, inf]
+D: [3, inf]
+I: [5, inf]
+D: [3, 5]
+J: [3, 5]
+M: [3, 4]
+J: [4, 5]
+N: [4, 2]
+J: [4, 5]
+O: [4, 5]
+J: [5, 5]
+D: [3, 5]
+A: [5, inf]
+A: [5, inf]
+
+Player 'Minimax + alpha-beta 1' [Player 1] moves AD.
+
+D
+
+It is the turn of player 'Minimax + alpha-beta 2' [Player 2].
+
+D: [-inf, inf]
+I: [-inf, -5]
+D: [-5, inf]
+J: [-5, inf]
+M: [-4, inf]
+J: [-5, -4]
+N: [-2, -4]
+J: [-5, -4]
+O: [-5, -4]
+J: [-5, -5]
+D: [-5, inf]
+D: [-5, inf]
+
+Player 'Minimax + alpha-beta 2' [Player 2] moves DI.
+
+I
+
+Game over.
+
+Player Minimax + alpha-beta 1 [Player 1]: 5
+Player Minimax + alpha-beta 2 [Player 2]: 0
+

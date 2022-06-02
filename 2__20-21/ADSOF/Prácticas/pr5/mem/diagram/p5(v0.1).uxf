@@ -1,0 +1,29 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>44</x><y>154</y><w>300</w><h>110</h></coordinates><panel_attributes>/AbstractForm/
+--
+# scanner: Scanner = new Scanner(System.in)
+--
+/+ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>464</x><y>144</y><w>420</w><h>110</h></coordinates><panel_attributes>Form
+--
+- entries: Map&lt;String, Field&lt;?&gt; &gt; = new LinkedHashMap&lt;&gt;()
+--
++ add(string: String, age: Field&lt;T&gt;): &lt;T extends Comparable&lt;T&gt; &gt; Form
++ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;
+- getAnswer(s: String, field: Field&lt;T&gt;): &lt;T extends Comparable&lt;T&gt; &gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>24</x><y>344</y><w>330</w><h>180</h></coordinates><panel_attributes>ProtectedForm
+--
+- form: Form
+- password: String
+- locked: boolean = true
+- message: String = "Enter password: " {readOnly}
+- failedMessage: String = "Invalid password " {readOnly}
+--
++ ProtectedForm(form: Form, password: String)
+_+ protect(form: Form, password: String): ProtectedForm_
++ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;
+- requestPassword()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>181</x><y>260</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>334</x><y>200</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>524</x><y>330</y><w>230</w><h>60</h></coordinates><panel_attributes>Cómo representamos los "extends"
+de los tipos de return de las funciones?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>50</x><y>550</y><w>270</w><h>90</h></coordinates><panel_attributes>Al parecer es concención que las variables
+estáticas como "final" estén en todo mayúsculas.
+Dejo aquí la nota por si acaso. Por ahora le dejo
+al lado un {readOnly} hasta que veamos que
+ponemos.
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>

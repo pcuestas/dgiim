@@ -1,0 +1,6 @@
+*.o
+*.a
+
+build/server
+build/www/media
+media/

@@ -1,0 +1,3 @@
+NOMBRE DEL ZIP: p1_[gggg]_[mm]_[surname1]_[surname2].zip
+
+"It is important to always write the authors’s name and the team number assigned to you in your lab group in all the files that you submit."

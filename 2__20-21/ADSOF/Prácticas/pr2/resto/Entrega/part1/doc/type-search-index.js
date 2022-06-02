@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"prac2.traffic","l":"Car"},{"p":"prac2.traffic","l":"Example2"},{"p":"prac2.traffic","l":"Motorcycle"},{"p":"prac2.traffic","l":"PollutionIndex"},{"p":"prac2.traffic","l":"Truck"},{"p":"prac2.traffic","l":"Vehicle"}];updateSearchResults();

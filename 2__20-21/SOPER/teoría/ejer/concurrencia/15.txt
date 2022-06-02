@@ -1,0 +1,28 @@
+/* ejercicio 6 */
+
+int count = 0; 
+sem abrir_puertas = 1, todos_dentro = 0, entrar = 0;
+automovil()
+{
+   down(entrar)
+   down(mutex)
+   entrar_dentro();
+   count++
+   if(count==4)
+   {
+        count = 0; 
+        up(todos_dentro);
+   }
+   up(mutex)
+}
+
+barcaza()
+{
+    down(abrir_puertas);
+    abre_puertas();
+    up(entrar, 4)
+    down(todos_dentro);
+    
+    salir();
+    up(abrir_puertas);
+}

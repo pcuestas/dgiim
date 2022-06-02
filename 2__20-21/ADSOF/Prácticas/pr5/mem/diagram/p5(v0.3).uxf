@@ -1,0 +1,53 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>790</x><y>32</y><w>360</w><h>110</h></coordinates><panel_attributes>/AbstractForm/
+--
+# scanner: Scanner = new Scanner(System.in)
+--
+/+ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;/
+/+ requestAnswer(s: String, field: Field&lt;T&gt;)/
+/                              : &lt;T extends Comparable&lt;? super T&gt; &gt; T/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1270</x><y>22</y><w>360</w><h>140</h></coordinates><panel_attributes>Form
+--
+- entries: Map&lt;String, Field&lt;?&gt; &gt; = new LinkedHashMap&lt;&gt;()
+--
++ add(string: String, age: Field&lt;T&gt;)
+           : &lt;T extends Comparable&lt;T&gt; &gt; Form
++ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;
++ requestAnswer(s: String, field: Field&lt;T&gt;)
+                            : &lt;T extends Comparable&lt;? super T&gt; &gt; T</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>232</y><w>390</w><h>180</h></coordinates><panel_attributes>ProtectedForm
+--
+- form: Form
+- passwordField: Field&lt;String&gt;
+- locked: boolean = true
+--
+- ProtectedForm(form: Form, password: String)
+_+ protect(form: Form, password: String): ProtectedForm_
++ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;
+- requestPassword(s: String, field: Field&lt;T&gt;)
+                                : public &lt;T extends Comparable&lt;? super T&gt; &gt; T</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1140</x><y>78</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1290</x><y>648</y><w>230</w><h>60</h></coordinates><panel_attributes>Cómo representamos el "extends"
+de Field?
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1530</x><y>232</y><w>350</w><h>120</h></coordinates><panel_attributes>DataAggregator
+--
+- data: Map&lt;String, Field&lt;?&gt; &gt; = new LinkedHashMap&lt;&gt;()
+--
++ add(answers: Map&lt;String, Comparable&lt;?&gt; &gt;)
+- addToData(key: String, value: Comparable&lt;?&gt;)
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>512</y><w>370</w><h>150</h></coordinates><panel_attributes>Field&lt;T extends Comparable&lt;? super T&gt; &gt;
+--
+- function: Function&lt;String, T&gt;
+- validations: Map&lt;Predicate&lt;T&gt;, String&gt;
+--
++ Field(func: Function&lt;String, ? extends T&gt;)
++ getValue(ans: String): T
++ checkValidation(answer: T)
++ addValidation(predicate: Predicate&lt;T&gt;, string: String): Field&lt;T&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>940</x><y>138</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>342</y><w>340</w><h>120</h></coordinates><panel_attributes>InvalidAnswerException
+--
+- message: String
+- answer: Object
+--
++ InvalidAnswerException(message: String, answer: Object)
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>202</y><w>140</w><h>50</h></coordinates><panel_attributes>FormException
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>352</y><w>200</w><h>70</h></coordinates><panel_attributes>InvalidAnswerException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>279</x><y>122</y><w>100</w><h>30</h></coordinates><panel_attributes>Exception</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>142</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>232</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10;70;120</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>222</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>269</x><y>452</y><w>540</w><h>180</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;10;10;160;520;160</additional_attributes></element><element><id>Relation</id><coordinates><x>389</x><y>212</y><w>420</w><h>400</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;10;230;10;230;380;400;380</additional_attributes></element></diagram>

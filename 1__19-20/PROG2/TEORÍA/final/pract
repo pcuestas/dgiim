@@ -1,0 +1,47 @@
+Status queueSplitThree(Queue * q, Queue * a, Queue * b, Queue * c){
+    int size;
+    int i;
+    Status st = OK;
+    void *ele = NULL;
+    
+    if(!q || !a || !b || !c || !queue_isEmpty(a) || !queue_isEmpty(b)|| !queue_isEmpty(c)) 
+        return ERROR;
+    
+    size = queue_size(q); /* no hay necesidad de cdE porque q!=NULL */
+    
+    /*como no podemos acceder a la estructura de cola, es necesario ir extrayendo elemento a elemento de la cola para poder separarla en tres colas distintas*/
+    
+    /* insertar los elementos desde 0 hasta size/3 (incluído) en a, a la vez que volvemos a insertar en q para que se preserve la cola original*/
+    for(i = 0; i <= (size / 3) && st == OK; i++){
+        ele = queue_extract(q);
+        st = queue_insert(q, ele);
+        if(st == OK)
+            st = queue_insert(a, ele);
+        free(ele);
+        ele = NULL;
+    }
+    /* insertar los elementos desde size/3+1 hasta 2*size/3 (incluído) en b, a la vez que volvemos a insertar en q para que se preserve la cola original*/
+    for(i = ((size/3)+1); i <= (2*(size / 3)) && st == OK; i++){
+        ele = queue_extract(q);
+        st = queue_insert(q, ele);
+        if(st == OK)
+            st = queue_insert(b, ele);
+        free(ele);
+        ele = NULL;
+    }
+    /* insertar los elementos desde 2*size/3+1 hasta el final (el elemento size-1 incluído) en c, a la vez que volvemos a insertar en q para que se preserve la cola original*/
+    for(i = (2*(size/3)+1); i < size && st == OK; i++){
+        ele = queue_extract(q);
+        st = queue_insert(q, ele);
+        if(st == OK)
+            st = queue_insert(c, ele);
+        free(ele);
+        ele = NULL;
+    }
+    
+    /*si ha habido algún error, st será ERROR. No es necesario comprobar que las extracciones no dan error, ya que desde el principio sabemos el tamaño de la cola y la función queue_extract(Queue *q) solamente da error cuando q está vacía, pero por las condiciones de los bucles, no está vacía en ninguno de los casos en los que se extrae*/
+    
+    /*no se especifica, por eso no lo incluyo en el código, pero en caso de error, al no poder acceder a la estructura de datos, la cola original se pierde completamente, ya que no se puede saber en qué momento se ha producido el error y por tanto queda completamente descolocada. Quizás sería lógico liberar las cuatro colas en el caso de que st==ERROR, pero también se podría hacer fuera de la funcíon. Como no se dice nada de este caso de error, no lo incluyo, pero dependiendo de cómo se pudiera usar esta función sería interesante incluirlo*/
+    
+    return st;
+}

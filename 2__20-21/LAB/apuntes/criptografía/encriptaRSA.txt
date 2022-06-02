@@ -1,0 +1,19 @@
+def desencriptaRSA(lista,nA,dA):
+    alfabeto=''.join([chr(c) for c in [65..90]])
+    simbolos=''.join([chr(c) for c in [33]+[36..64]])
+    alfabeto=' '+alfabeto+alfabeto.lower()+simbolos
+    L=len(alfabeto)
+    b=floor(log(nA)/log(L))
+    desencriptado=[potenciaRSA(x,nA,dA) for x in lista]
+    texto=DesBloques(desencriptado,b)
+    return texto
+    
+def encriptaRSA(texto,nA,eA):
+    alfabeto=''.join([chr(c) for c in [65..90]])
+    simbolos=''.join([chr(c) for c in [33]+[36..64]])
+    alfabeto=' '+alfabeto+alfabeto.lower()+simbolos
+    L=len(alfabeto)
+    b=floor(log(nA)/log(L))
+    bloques=Bloques(texto,b)
+    encriptado=[potenciaRSA(x,nA,eA) for x in bloques]
+    return encriptado

@@ -1,0 +1,1 @@
+./exercise5 -num_min 5 -num_max 20 -incr 5 -numP 1000000 -outputFile low_quick.log

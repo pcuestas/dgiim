@@ -1,0 +1,16 @@
+preguntas extra 2.5
+
+
+pi_par2 da resultado incorrecto (a veces?!)
+
+
+
+
+ningun pi da error?
+paralelizar bucles en 5.
+
+
+
+
+
+

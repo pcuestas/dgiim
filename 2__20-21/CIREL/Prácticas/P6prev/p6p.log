@@ -1,0 +1,297 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.30)  19 NOV 2020 21:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**p6p.tex
+(./p6p.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip49
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count175
+\l__pdf_internal_box=\box45
+)
+(./p6p.aux)
+\openout1 = `p6p.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count176
+\scratchdimen=\dimen137
+\scratchbox=\box46
+\nofMPsegments=\count177
+\nofMParguments=\count178
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count179
+\MPscratchDim=\dimen138
+\MPnumerator=\count180
+\makeMPintoPDFobject=\count181
+\everyMPtoPDFconversion=\toks16
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 23.
+<c1lts.png, id=1, 653.44125pt x 536.75531pt>
+File: c1lts.png Graphic file (type png)
+<use c1lts.png>
+Package pdftex.def Info: c1lts.png  used on input line 26.
+(pdftex.def)             Requested size: 326.71982pt x 268.37698pt.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./c1lts.PNG>]
+<c1.png, id=18, 722.7pt x 625.33624pt>
+File: c1.png Graphic file (type png)
+<use c1.png>
+Package pdftex.def Info: c1.png  used on input line 38.
+(pdftex.def)             Requested size: 216.81166pt x 187.60231pt.
+<c1dem.png, id=19, 1428.08531pt x 655.69969pt>
+File: c1dem.png Graphic file (type png)
+<use c1dem.png>
+Package pdftex.def Info: c1dem.png  used on input line 45.
+(pdftex.def)             Requested size: 428.42891pt x 196.71143pt.
+ [2
+
+ <./c1.png> <./c1dem.PNG>]
+<c2dib.png, id=28, 764.8575pt x 572.89032pt>
+File: c2dib.png Graphic file (type png)
+<use c2dib.png>
+Package pdftex.def Info: c2dib.png  used on input line 57.
+(pdftex.def)             Requested size: 229.45901pt x 171.86841pt.
+<c2dem.png, id=29, 1441.63594pt x 689.57625pt>
+File: c2dem.png Graphic file (type png)
+<use c2dem.png>
+Package pdftex.def Info: c2dem.png  used on input line 67.
+(pdftex.def)             Requested size: 432.49413pt x 206.87447pt.
+ [3
+
+ <./c2dib.PNG> <./c2dem.PNG>]
+<c21.png, id=35, 1100.11pt x 892.33376pt>
+File: c21.png Graphic file (type png)
+<use c21.png>
+Package pdftex.def Info: c21.png  used on input line 81.
+(pdftex.def)             Requested size: 330.03555pt x 267.7022pt.
+<145.png, id=36, 223.58531pt x 72.27pt>
+File: 145.png Graphic file (type png)
+<use 145.png>
+Package pdftex.def Info: 145.png  used on input line 99.
+(pdftex.def)             Requested size: 134.1522pt x 43.36232pt.
+ [4
+
+ <./c21.png> <./145.PNG>]
+<110.png, id=42, 220.57407pt x 73.77562pt>
+File: 110.png Graphic file (type png)
+<use 110.png>
+Package pdftex.def Info: 110.png  used on input line 124.
+(pdftex.def)             Requested size: 132.34544pt x 44.2657pt.
+<1100.png, id=43, 220.57407pt x 70.76437pt>
+File: 1100.png Graphic file (type png)
+<use 1100.png>
+Package pdftex.def Info: 1100.png  used on input line 125.
+(pdftex.def)             Requested size: 132.34544pt x 42.45894pt.
+<11000.png, id=44, 222.07968pt x 70.76437pt>
+File: 11000.png Graphic file (type png)
+<use 11000.png>
+Package pdftex.def Info: 11000.png  used on input line 126.
+(pdftex.def)             Requested size: 133.24883pt x 42.45894pt.
+<110000.png, id=45, 219.06844pt x 75.28125pt>
+File: 110000.png Graphic file (type png)
+<use 110000.png>
+Package pdftex.def Info: 110000.png  used on input line 127.
+(pdftex.def)             Requested size: 131.44206pt x 45.16908pt.
+<1100000.png, id=46, 222.8325pt x 73.02281pt>
+File: 1100000.png Graphic file (type png)
+<use 1100000.png>
+Package pdftex.def Info: 1100000.png  used on input line 128.
+(pdftex.def)             Requested size: 133.70053pt x 43.81401pt.
+<c3dib.png, id=47, 728.7225pt x 548.80031pt>
+File: c3dib.png Graphic file (type png)
+<use c3dib.png>
+Package pdftex.def Info: c3dib.png  used on input line 136.
+(pdftex.def)             Requested size: 364.36035pt x 274.39948pt.
+<c3dem.png, id=48, 1445.4pt x 687.31781pt>
+File: c3dem.png Graphic file (type png)
+<use c3dem.png>
+Package pdftex.def Info: c3dem.png  used on input line 141.
+(pdftex.def)             Requested size: 433.62335pt x 206.19693pt.
+
+[5
+
+ <./110.PNG> <./1100.PNG> <./11000.PNG> <./110000.PNG> <./1100000.PNG> <./c3dib
+.PNG>]
+<c31.png, id=58, 1151.30125pt x 891.33pt>
+File: c31.png Graphic file (type png)
+<use c31.png>
+Package pdftex.def Info: c31.png  used on input line 150.
+(pdftex.def)             Requested size: 345.39305pt x 267.40106pt.
+ [6 <./c3dem.PNG> <./c31.png>]
+<210.png, id=64, 219.82124pt x 67.75313pt>
+File: 210.png Graphic file (type png)
+<use 210.png>
+Package pdftex.def Info: 210.png  used on input line 183.
+(pdftex.def)             Requested size: 131.89375pt x 40.65218pt.
+<2100.png, id=65, 219.06844pt x 73.02281pt>
+File: 2100.png Graphic file (type png)
+<use 2100.png>
+Package pdftex.def Info: 2100.png  used on input line 184.
+(pdftex.def)             Requested size: 131.44206pt x 43.81401pt.
+<21000.png, id=66, 221.32687pt x 72.27pt>
+File: 21000.png Graphic file (type png)
+<use 21000.png>
+Package pdftex.def Info: 21000.png  used on input line 185.
+(pdftex.def)             Requested size: 132.79713pt x 43.36232pt.
+<210000.png, id=67, 222.8325pt x 74.52844pt>
+File: 210000.png Graphic file (type png)
+<use 210000.png>
+Package pdftex.def Info: 210000.png  used on input line 186.
+(pdftex.def)             Requested size: 133.70053pt x 44.71739pt.
+<2100000.png, id=68, 222.8325pt x 73.02281pt>
+File: 2100000.png Graphic file (type png)
+<use 2100000.png>
+Package pdftex.def Info: 2100000.png  used on input line 187.
+(pdftex.def)             Requested size: 133.70053pt x 43.81401pt.
+<245.png, id=69, 221.32687pt x 73.02281pt>
+File: 245.png Graphic file (type png)
+<use 245.png>
+Package pdftex.def Info: 245.png  used on input line 194.
+(pdftex.def)             Requested size: 132.79713pt x 43.81401pt.
+ [7 <./210.PNG> <./2100.PNG> <./21000.PNG> <./210000.PNG> <./2100000.PNG> <./24
+5.PNG>]
+<circuito_img.jpg, id=81, 1396.21625pt x 907.39pt>
+File: circuito_img.jpg Graphic file (type jpg)
+<use circuito_img.jpg>
+Package pdftex.def Info: circuito_img.jpg  used on input line 213.
+(pdftex.def)             Requested size: 349.0532pt x 226.84694pt.
+<ejemplo_A.jpg, id=82, 1192.455pt x 907.39pt>
+File: ejemplo_A.jpg Graphic file (type jpg)
+<use ejemplo_A.jpg>
+Package pdftex.def Info: ejemplo_A.jpg  used on input line 221.
+(pdftex.def)             Requested size: 214.63264pt x 163.32315pt.
+<ejemplo_t.jpg, id=83, 1203.49625pt x 907.39pt>
+File: ejemplo_t.jpg Graphic file (type jpg)
+<use ejemplo_t.jpg>
+Package pdftex.def Info: ejemplo_t.jpg  used on input line 222.
+(pdftex.def)             Requested size: 216.61998pt x 163.32315pt.
+ [8
+
+ <./circuito_img.jpg> <./ejemplo_A.jpg> <./ejemplo_t.jpg>]
+<gr_dB.png, id=87, 482.55281pt x 360.59718pt>
+File: gr_dB.png Graphic file (type png)
+<use gr_dB.png>
+Package pdftex.def Info: gr_dB.png  used on input line 266.
+(pdftex.def)             Requested size: 289.5339pt x 216.35997pt.
+ [9
+
+ <./gr_db.png (PNG copy)>]
+<fase.png, id=91, 482.55281pt x 360.59718pt>
+File: fase.png Graphic file (type png)
+<use fase.png>
+Package pdftex.def Info: fase.png  used on input line 274.
+(pdftex.def)             Requested size: 289.5339pt x 216.35997pt.
+ [10
+
+ <./fase.png (PNG copy)>] [11
+
+] (./p6p.aux) ) 
+Here is how much of TeX's memory you used:
+ 1372 strings out of 481239
+ 19499 string characters out of 5920376
+ 257566 words of memory out of 5000000
+ 16671 multiletter control sequences out of 15000+600000
+ 536286 words of font info for 37 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 30i,8n,25p,693b,212s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb>
+Output written on p6p.pdf (11 pages, 1428307 bytes).
+PDF statistics:
+ 140 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+

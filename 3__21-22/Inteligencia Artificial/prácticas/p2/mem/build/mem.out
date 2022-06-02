@@ -1,0 +1,33 @@
+\BOOKMARK [1][-]{section.1}{Minimax and alpha-beta pruning}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Testing alpha-beta pruning correctness with the `simple game tree'}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Manually applying minimax to the tree }{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Applying the coded minimax algorithm to the tree}{subsection.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.3}{Manually applying alpha-beta minimax to the tree }{subsection.1.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.1.4}{Applying the coded alpha-beta minimax algorithm to the tree}{subsection.1.1}% 6
+\BOOKMARK [2][-]{subsection.1.2}{Verifying pruning performance}{section.1}% 7
+\BOOKMARK [3][-]{subsubsection.1.2.1}{With a constant heuristic }{subsection.1.2}% 8
+\BOOKMARK [3][-]{subsubsection.1.2.2}{With a random heuristic}{subsection.1.2}% 9
+\BOOKMARK [3][-]{subsubsection.1.2.3}{With one of our heuristics }{subsection.1.2}% 10
+\BOOKMARK [1][-]{section.2}{Heuristic}{}% 11
+\BOOKMARK [2][-]{subsection.2.1}{Initial Heuristics}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Coin difference heuristic }{subsection.2.1}% 13
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Corner difference }{subsection.2.1}% 14
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Simple evaluation function}{subsection.2.1}% 15
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Using a weighted board}{subsection.2.1}% 16
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Penalizing tiles adjacent to corners}{subsection.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.2}{Comparing heuristics}{section.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Generation of random boards}{subsection.2.2}% 19
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Scripts}{subsection.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.3}{More advanced heuristics}{section.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Frontiers}{subsection.2.3}% 22
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Dynamic Board}{subsection.2.3}% 23
+\BOOKMARK [2][-]{subsection.2.4}{Tournaments and evolution of our heuristics}{section.2}% 24
+\BOOKMARK [3][-]{subsubsection.2.4.1}{First tournament }{subsection.2.4}% 25
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Second tournament }{subsection.2.4}% 26
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Third tournament }{subsection.2.4}% 27
+\BOOKMARK [3][-]{subsubsection.2.4.4}{Fourth tournament}{subsection.2.4}% 28
+\BOOKMARK [1][-]{section.3}{Final Considerations}{}% 29
+\BOOKMARK [2][-]{subsection.3.1}{Othello compared to chess}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.2}{Our final heuristics}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.3}{Conclussion}{section.3}% 32
+\BOOKMARK [1][-]{figure.8}{References}{}% 33

@@ -1,0 +1,486 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{.2,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeblue}{rgb}{0,0.4,0.82}
+\definecolor{codeorange}{rgb}{0.94,0.34,0.0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{backcolourgray}{rgb}{0.92,0.92,0.92}
+\definecolor{codewhite}{rgb}{1,1,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolourgray},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codeorange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    %numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+    %, basicstyle=\footnotesize
+}
+
+\lstset{style=mystyle}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Sistemas Operativos. Práctica 1.}
+\lhead{Pablo Cuesta y Álvaro Zamanillo}
+\cfoot{\thepage}
+
+
+\title{Sistemas Operativos. Práctica 1.}
+\author{Pablo Cuesta Sierra y Álvaro Zamanillo Sáez }
+\date{}
+
+
+
+
+
+\begin{document}
+
+\maketitle
+
+%\tableofcontents
+
+\addcontentsline{toc}{section}{Semana 1}
+\section*{Semana 1}
+
+\addcontentsline{toc}{subsection}{Ejercicio 1}
+\subsection*{Ejercicio 1}
+
+a) Para buscar las funciones relacionadas con hilos, buscamos todas aquellas que contengan ``pthread'' usando la opción -k del comando man. El comando a usar es: 
+
+\begin{lstlisting}[language=bash]
+$ man -k pthread
+\end{lstlisting}
+
+Lista de funciones resultante: 
+
+\lstinputlisting[breaklines]{pthread_functions.txt}
+
+b) Consultar en el manual en qué sección se encuentran las llamadas a sistema y buscar infromación sobre write:
+
+\begin{lstlisting}[language=bash]
+$ man man
+\end{lstlisting}
+
+Con este comando averiguamos que la sección relacionada a \textit{system calls} es la 2. Por lo tanto usamos el comando:
+
+\begin{lstlisting}[language=bash]
+$ man 2 write
+\end{lstlisting}
+
+\subsection*{Ejercicio 2}
+
+a) El comando empleado es: 
+
+\begin{lstlisting}[language=bash]
+$ grep -w molino "don quijote.txt" >> aventuras.txt
+\end{lstlisting}
+
+Usamos el comando grep para buscar las apariciones de ``molino''. Como queremos que sea la palabra \textit{molino} y no el grama \textit{molino}, añadimos la opción \texttt{-w}. Finalmente redireccionamos la salida con \texttt {>}\texttt {>} en vez de \texttt {>} para que se añada al final del fichero, en lugar de reemplazarlo.
+
+\textit{Nota: podríamos utilizar también la opción \texttt{-i} de \texttt{grep} para que nos salieran también las apariciones de la palabra donde empieza con mayúscula.}
+
+b) El \textit{pipeline} es el siguiente:
+
+\begin{lstlisting}[language=bash]
+$ ls | wc -l
+\end{lstlisting}
+
+La salida de \texttt{ls} es una lista (fichero) con los ficheros del actual directorio.
+Esta lista la usamos como input del comando wc, que acompañado de la opción -l, cuenta las lineas de dicha lista.
+
+
+c) En este caso el \textit{pipeline} es: 
+
+\begin{lstlisting}[language=bash]
+$ cat "lista de la compra Pepe.txt" "lista de la compra Elena.txt" 2> /dev/null | sort | uniq | wc -l > "num compra.txt"
+\end{lstlisting}
+
+Primero concatenamos los dos ficheros (redirigiendo el mensaje error, en caso de haberlo). Después, dirigimos la salida para que sea el input de \texttt{sort}, para que luego \texttt{uniq} quite las líneas repetidas. Finalmente, contamos el número de líneas distintas con \texttt{wc -l} y dirigimos la salida al fichero \texttt{"num compra.txt"}.
+
+\subsection*{Ejercicio 3}
+
+a) Si intentamos abrir un fichero inexistente recibimos el mensanje \texttt{"No such file or directory"}. El código errno asociado es 2.
+
+b) En el caso de intentar abrir el fichero \texttt{/etc/shadow} el  mensaje de error es \texttt{"Permission denied"}, que corresponde al valor de errno 13.
+
+c) Justo después de la instrucción \texttt{fopen()} se debería guardar el valor de errno en otra variable ya que la llamada a \texttt{printf()} podría modificar la variable global errno.
+
+\begin{lstlisting}[language=C, texcl=true]
+pf=fopen(argv[1],"r"); 
+x=errno;
+printf("El valor de errno es %i",x);
+errno=x; //Aquí aseguramos que la función perror() va a imprimir el código 
+         //de error de fopen ya que hemos restaurado el valor de errno 
+         //asociado a fopen()
+perror("fopen");
+\end{lstlisting}
+
+
+\subsection*{Ejercicio 4}
+
+a) Durante los 10 segundos de espera el proceso asociado al programa está en estado ``R''(runnable), es decir se está ejecutando (intercalándose con otros).
+
+b) En este caso el proceso está en estado ``S'' (interruptible sleep) o lo que es lo mismo, esperando a un suceso (el fin de la espera marcada por sleep()), mientras se ejecutan otros procesos.
+
+
+\subsection*{Ejercicio 5}\label{ej5}
+
+a) Si el proceso no hubiese esperado a los hilos, cuando el hilo principal llegase a \texttt{exit()}, el programa finalizaría matando los hilos que no tendrían por qué haber acabado. De hecho, si quitamos del código las instrucciones \texttt{pthread\_join}, vemos que cada hilo solo tiene tiempo de escribir una letra antes de que el hilo principal llegue al exit y finalice, por tanto, la ejecución de todos los hilos.
+
+b) En este caso, ocurre exactamente lo mismo que en anterior (se imprimen las dos primeras letras--una de cada hilo--, luego se imprime el mensaje de la línea 51 en el código dado). Sin embargo, después de esto, continúan ejecutándose los dos hilos hasta que cada uno de ellos llega a su función \texttt{exit()}.
+
+Es decir, \texttt{pthread\_exit()} termina la ejecución del hilo principal, pero permite que se terminen todos los hilos que del proceso antes de terminarlo. Lo cual no pasa si se llama directamente a \texttt{exit()}, como hemos visto en el apratado 5a).
+
+c) Para que se espere la terminación de los hilos sin que el hilo principal ocupe al procesador, pero sin utilizar ni \texttt{pthread\_exit()} ni \texttt{pthread\_join()}, podemos hacer lo siguiente:
+
+\begin{lstlisting}[language=C, texcl=true, numbers=left]
+#define max(a,b) ((a)>(b)?(a):(b))
+
+int _h_count=0;
+
+void *slow_printf(void *arg) {
+    const  char *msg = arg;
+    size_t i;
+    
+    for (i = 0; i < strlen(msg); i++) {
+        printf(" %c ", msg[i]);
+        fflush(stdout);
+        sleep (1);
+    }    
+    _h_count++; //para saber cuántos han terminado (0, 1, o 2)
+    return  NULL;
+}
+
+int main(int argc, char **argv){
+    pthread_t h1, h2;
+    char *hola="Hola", *mundo="Mundo";
+    int error;
+
+    error = pthread_create(&h1, NULL, slow_printf, hola);
+    if(error != 0){
+        fprintf(stderr, "pthread_create: %s\n", strerror(error));
+        exit (EXIT_FAILURE);
+    }
+    error = pthread_create(&h2, NULL, slow_printf, mundo);
+    if(error != 0){
+        fprintf(stderr, "pthread_create: %s\n", strerror(error));
+        exit (EXIT_FAILURE);
+    }
+    error = pthread_detach(h1);
+    if(error != 0){ 
+        fprintf(stderr, "pthread_detach: %s\n", strerror(error));
+        exit (EXIT_FAILURE);
+    }
+    error = pthread_detach(h2);
+    if(error != 0){
+        fprintf(stderr, "pthread_detach: %s\n", strerror(error));
+        exit (EXIT_FAILURE);
+    }
+
+    sleep(max(strlen(hola), strlen(mundo))); 
+    while (_h_count != 2);/*nos aseguramos de que han terminado*/
+    printf("El programa %s termino correctamente\n", argv[0]);
+    exit(EXIT_SUCCESS);
+}
+\end{lstlisting}
+
+Si no llamamos a \texttt{pthread\_join()}, tenemos que desilgar los hilos (llamando a \texttt{pthread\_detach()}).
+
+Además, guardamos una variable global que cuenta los que hilos han terminado, y por la orden: \texttt{while(\_h\_count!=2);}, nos aseguramos de que el hilo principal no termina antes de que los otros dos hayan terminado. Para evitar que el hilo principal esté comprobando esta variable cuando sabemos que no pueden haber terminado, llamamos justo antes a \texttt{sleep()}, para que el hilo principal se quede esperando un suceso (que el tiempo máximo que tarda uno de los hilos pase), en lugar de estar ejecutándose sin sentido.
+
+\section*{Semana 2}
+
+\subsection*{Ejercicio 6}
+
+a) No se puede saber ya que después de cada \texttt{fork()} el planificador puede establecer un orden de ejecución distinto de los cuatro procesos que hay en total.
+
+b) Como queremos que sea el hijo el que imprima su PID y el de su padre, hay que modificar el bloque if correspondiente al hijo (\texttt{fork()} devuelve 0 en el hijo). En el printf llamamos a las funciones \texttt{getpid()} y \texttt{gepppid()} haciendo cast de sus valores de retorno:
+
+\begin{lstlisting}[language=C, numbers=left]
+    else if(pid==0){
+        printf("Hijo: pid=%jd, ppid=%jd\n", (intmax_t)getpid(), (intmax_t)getppid());
+        exit(EXIT_SUCCESS);
+    }
+\end{lstlisting}
+
+Esta opción es posible que no imprima correctamente el pid del padre (si el proceso se queda huérfano). Sin embargo, si antes de llamar a \texttt{fork()} guardamos en una varibale local el pid del padre: \texttt{ppid=getpid();}, nos aseguramos que todos los hijos tienen guardado el pid del padre y se puede imprimir de esta manera.
+
+c) El código se corresponde al diagrama (a); ya que los hijos depués de imprimir finalizan (llamada a \texttt{exit()}) y en cambio el padre vuelve a crear un nuevo hijo en la siguiente iteración. Para obtener el otro diagrama habría que modificar los bloques del hijo y del padre: el proceso padre es el que llama a \texttt{exit()} y el hijo no lo hace, para crear un nuevo proceso en la siguiente iteración del bucle:
+
+\begin{lstlisting}[language=C, numbers=left]
+    else if(pid==0){
+        printf("Hijo: pid=%jd, ppid=%jd\n", (intmax_t)getpid(), (intmax_t)getppid());
+    }
+    else if(pid > 0) {
+        printf("Padre %d\n", i);
+        exit(EXIT_SUCCESS);
+    }
+\end{lstlisting}
+
+d) El código original puede dejar huérfanos ya que nada asegura que los 3 hijos vayan a finalizar antes que el padre. En cuanto el proceso padre se encuentre en la línea de ejecución del \texttt{wait()} y un hijo suyo finalice (o haya finalizado), el proceso padre finalizará también dejando huérfano a los posibles hijos restantes (máximo 2). Es decir, \texttt{wait()}, usado como en el código dado, tan solo espera al primer hijo que finalice.
+
+e) Una forma de evitar esto es cambiar esa línea de código por: la línea: \texttt{while(wait(NULL)!=-1);}. El padre esperará a un hijo hasta que no haya procesos hijos que esperar (\textit{no unwaited-for children}), cuando devolverá -1 y podrá finalizar el padre.  
+
+\subsection*{Ejercicio 7}
+
+a) Al ejecutar vemos que la cadena \textit{sentence} que imprime el padre está vacía. El error del programa es no tener en cuenta que al crear el proceso hijo, éste tiene una memoria separada del padre  por lo que los cambios que se hagan desde el hijo no son visibles desde el padre. Cada puntero \textit{sentence} apunta a una dirección de memoria distinta.
+(debido al \textit{Copy On Write} podría ser que si no se trata de modificar la información de ese bloque de memoria no se llegase a crear una copia. No obstante en este caso no hay dudas ya que estamos modificando la memoria apuntada por \textit{sentence} al llamar a la función \texttt{strcpy()}).
+
+b) Habría que liberar memoria tanto en el padre como en el hijo ya que se está creando una nueva copia del bloque de memoria alocado en el proceso padre como hemos explicado en el apartado anterior:
+
+\begin{lstlisting}[language=C, numbers=left]
+    else if(pid==0){
+        strcpy(sentence, MESSAGE);
+        free(sentence);
+        exit(EXIT_SUCCESS);
+    }
+    else {
+        wait(NULL);
+        printf("Padre: %s\n", sentence);
+        free(sentence);
+        exit(EXIT_SUCCESS);
+    }
+\end{lstlisting}
+
+
+
+\subsection*{Ejercicio 8}
+
+a) El resultado es el mismo. Según el manual de \href{man:execvp(3)}{execvp}, el hecho de que el primer elemento en el array de argumentos que se pasa (\texttt{const char *argv[]}) sea el nombre del fichero asociado al fichero que se va a ejecutar, es tan solo una convención. Sin embargo, no cambia el resultado, ya que se ejecuta el fichero que se indica en el primer argumento de la llamada a \texttt{execvp()}.
+
+b) Tenemos que cambiar la orden de llamada a \texttt{execvp} por lo siguiente:
+
+\begin{lstlisting}[language=C]
+    execl("/bin/ls", "ls", "./" , (char*)NULL)
+\end{lstlisting}
+
+Debido a que en este caso la función no contiene la letra \texttt{p} tras el sufijo \texttt{exec}, es necesario especificar la ubicación del fichero a ser ejecutado (en este caso: \texttt{/bin/ls}). Después, incluimos los argumentos de la función. En este caso, debido a la \texttt{l} después del prefijo \texttt{exec}, éstos no deben pasarse como un array de cadenas, sino uno a uno (las funciones que tienen el prefijo \texttt{execl} son funciones variádicas). Como antes, por convención, el primero de ellos es el nombre del fichero que se va a ejecutar (\texttt{"ls"}), y luego los argumentos: en este caso, solamente \texttt{"./"}. Finalizando con un puntero a \texttt{NULL} (además, debemos hacer cast a \texttt{(char*)}).
+
+\section*{Semana 3}
+
+\subsection*{Ejercicio 9}
+
+a) Nombre el ejecutable: en el fichero \texttt{/proc/\textit{[pid]}/stat}, el segundo campo contiene entre paréntesis el nombre del ejecutable: \texttt{bash}.
+
+b) Hay que ver a dónde apunta el link \texttt{cwd}: \texttt{/proc/6060}
+
+c) La línea de comados que se usó para lanzarlo se encuentra en el fichero: \texttt{/proc/\textit{[pid]}/cmdline}
+
+Y es: \texttt{bash}.
+
+d) Lo podemos buscar en el fichero \texttt{environ}, y es: \texttt{LANG=es\_ES.UTF-8}
+\begin{lstlisting}[language=bash]
+    cat /proc/6060/environ | tr '\0' '\n' | grep LANG
+\end{lstlisting}
+
+e) La lista de hilos del proceso se encuentra haciendo \texttt{ls /proc/\textit{[pid]}/task}, ya que este directorio es donde se encuentran los subdirectorios de los hilos. En este caso solo hay un hilo: \texttt{6060}.
+
+\subsection*{Ejercicio 10}
+
+a) Encontramos los descriptores de fichero 0, 1 y 2, que corresponden respectivamente a stdin, stdout y stderr.
+
+b) En el segundo \textit{Stop} vemos que hay un nuevo descriptor (3) que apunta a file1.txt y en el siguiente \textit{Stop}, otro nuevo (4) que apunta a file2.txt
+
+c) Tras la llamada a unlink vemos que el descriptor de fichero que apuntaba a file1.txt aparece marcado como borrado --\texttt{(deleted)}-- en la tabla aunque permanece ahí. Esto se debe a que solo hemos eliminado la ruta para acceder al fichero pero no lo hemos cerrado.
+
+Se sigue podiendo acceder al fichero desde \texttt{/proc/\textit{[pid]}/fd}, y podemos acceder a su contenido, por lo que se pueden recuperar los datos.
+
+Una manera sencilla de recuperarlo (cambiando el código) después de la orden \texttt{unlink(FILE1)} sería hacer lo siguiente:
+\begin{lstlisting}[language=C]
+    sprintf(file_path, "/proc/%jd/fd/%d",(intmax_t)getpid(),file1);
+    if(!fork())
+        execlp("cp", "cp", file_path, FILE1, (char*)NULL);
+\end{lstlisting}
+
+De este modo se copia el fichero que no se ha cerrado al directorio desde el que se está ejecutando el programa, y cuando se cierra no se pierde su contenido.
+
+
+d) Tras el \textit{Stop 5}, el descriptor del fichero file1.txt ya se ha eliminado de la tabla (todas sus rutas se han eliminado con \texttt{unlink()} y el proceso lo ha cerrado con \texttt{close()}). Tras el \textit{Stop 6}, se ha reutilizado el descriptor 3, antes asignado al fichero file1.txt, para el fichero file3.txt. Y tras el \textit{Stop 7}, se asigna otro descriptor (5) al mismo fichero (file3.txt); por lo que ahora tenemos 0, 1, 2 como al inicio, 3 y 5 apuntando a file3.txt, y 4 apuntando a file2.txt.
+
+Por lo que hemos visto, al abrir un nuevo fichero, se asigna el descriptor más pequeño que esté libre tras cada llamada a \texttt{open}.
+
+\subsection*{Ejercicio 11}
+
+a) El mensaje ``Yo soy tu padre'' se imprime dos veces en pantalla porque la llamada a \texttt{fork()} se hace sin que se haya vaciado el buffer de salida. Por lo tanto el proceso hijo, cuyos datos son una copia del proceso padre, hereda una copia de este buffer de salida (que no está vacio). Cuando el hijo acaba su ejecución vacia su buffer que contiene tanto el mensaje ``Yo soy tu padre'' como ``Noooooo''. Por otro lado el padre al terminar también vuelca su buffer; en este caso solo contiene ``Yo soy tu padre''.
+
+b) Si añadimos el salto de línea ya no ocurre lo mencionado anteriormente. Esto se debe a que cuando se está imprimiendo en \textit{stdout}, el buffer está configurado para volcarse con cada salto de línea o al llenarse. Es por eso que cuando se crea el hijo, el buffer de salida que hereda está vacío.
+
+c) Al redirigir la salida a un fichero, la configuración del buffer ya no es la del apartado anterior (vaciarse con salto de línea), sino que solo se vacía tras una llamada a \texttt{fflush(file)} o cuando se llena.
+
+d) Para solucionar los problemas, lo más sencillo es asegurarse que el buffer se vuelca antes de crear el proceso hijo y esto se consigue en todos los casos con la llamada a \texttt{fflush(stdout)}.
+
+\subsection*{Ejercicio 12}
+
+a) Tras ejecutar el programa vemos que el padre imprime por pantalla: ``He recibido el string: Hola a todos!'', y el hijo: ``He escrito en el pipe''. Como se ha comentado anteriormente, el orden de estos mensajes puede variar.
+
+b) Si no cierra el extremo de escritura el mensaje impreso en pantalla es el mismo pero no finaliza el proceso, ya que el padre sigue esperando a una escritura en la tubería. El descriptor de fichero \texttt{f[1]} sigue abierto: por él mismo, por lo que se queda bloqueado en la orden \texttt{nbytes=read(...)}. En el anterior caso, como todos los procesos habían cerrado el fichero de salida \texttt{f[1]}, en esa orden el padre leía \texttt{EOF}, por lo que \texttt{read()} devolvía \texttt {0} y el bucle se terminaba. 
+
+\subsection*{Ejercicio 13}
+
+a) Para el bucle principal utilizamos \texttt{fgets}, que devuelve \texttt{NULL} al leer \texttt{EOF}. El hilo prepara después en la estructura el argumento del comando que posteriormente se pasará en la llamada a \texttt{execvp}. Para asegurar que no se lanza el proceso que ejecuta el comando antes de que finalice el hilo, utilizamos \texttt{pthread\_join}.
+
+b) Para crear la cadena que se pide, al esperar en el hilo principal al proceso que lanza el comando, usamos el argumento de \texttt{wait()}. De ahí sacamos los distintos posibles casos (si el hijo ha terminado correctamente y su valor de salida, o si ha mandado alguna señal).
+
+\textit{ Nota: hemos tenido un problema con \texttt{strsignal}, que interpreta la señal de terminación del proceso hijo, al compilar con la bandera \texttt{-ansi}, por lo que hemos dejado de compilar con banderas.}
+
+c) Hemos usado la función \texttt{execvp} ya que los argumentos del comando tras la ejecución del hilo, han sido colocados en un vector, la 'p' de la función es para que use la variable local PATH al ejecutar el comando. No se puede usar otra función, ya que no conocemos el número de argumentos que se van a escribir, por lo que tenemos que usar una función con 'v'; y por otro lado, no sabemos la ruta del comando que se quiere ejecutar.
+
+Al ejecutar el comando \texttt{sh -c inexistente} se obtiene la cadena: \texttt{Exited with value: 127}.
+
+Al ejecutar un programa que finaliza llamando a \texttt{abort()}, recibimos la señal ``Aborted'' (que tiene asociado el código 134). La cadena en este caso es: \texttt{Terminated by signal: Aborted}.
+
+d) En cuanto al uso de la tubería, el proceso que recibe los mensajes del padre y los escribe en el registro de la ejecución se crea antes del bucle principal. El fichero \textit{log.txt} lo abrimos con la opción \texttt{O\_TRUNC}, que borra todo su contenido al llamar a \texttt{open} porque era más cómodo para hacer las pruebas y no se especifica nada. Para conservar los anteriores mensajes habría que sutituir esta opción por \texttt{O\_APPEND}, que hace que se comience a escribir al final del fichero.
+
+Como \texttt{strtok} altera la cadena original, el comando leído por \texttt{fgets} se manda por la tubería antes de crear el hilo. El padre manda los jes que se quieren imprimir en el fichero \textit{log.txt} con \texttt{dprintf}. Y se leen los mensajes de la tubería en un bucle que termina cuando el padre cierra su fichero de escritura al terminar el bucle principal. Como se ve en el código, no pueden quedar procesos huérfanos ni en estado \textit{zombie}, ya que el padre espera a cada hijo que crea.
+
+
+
+
+
+\end{document}
+
+
+Sobre la implementación de la shell: 
+---
+Básicamente el código está estructurado según las indicaciones del enunciado:  un bucle principal en el \textit{main} lee los comandos a ejecutar línea a línea hasta que se introduzca \textit{EOF}. La línea leida forma parte de una estructura que se envía como argumento del hilo (hacemos cast a puntero a void). El hilo va a preparar el \textit{array} que se usará posteriormente en la llamada a \textit{execvp}. Para asegurar que no se lance el proceso nuevo antes de que el procesado de la línea haya finalizado, usamos la función \textit{pthread\_join}.
+
+Como la función \textit{strtok} altera la \textit{string} original, escribimos en la tubería la línea leída antes de la llamda al hilo. A propósito del uso de la tubería, la creamos antes de empezar a leer en el bucle y por supuesto, antes de lanzar el proceso que tiene que leer de la tubería y escrbir en el fichero log.txt para que este proceso tenga en su tabla de descriptores, los asociados a la tubería. En el proceso padre cerramos el extremo de lectura, y en el hijo, el de escritura.
+
+Por otro lado, hemos empleado la función \textit{dprintf} para volcar la línea leída y el estado de terminación del proceso lanzado por \textit{execvp}. El estado de terminanción lo recogemos con la función bloqueante \textit{wait}, que va a impedir al proceso padre continuar hasta que finalice el proceso que ejecuta el comando. Una cosa a mencionar es PROBLEMA CON STRSIGNAL!!. El programa finaliza cuando se introduce EOF y el padre cierra su extremo de escritura de la tubería. El proceso en el otro extremo de la tubería finalizará entonces (tras leer todo los datos que pudiesen quedar en la tubería). Como se ve en el código, no pueden quedar procesos huérfanos ya que el proceso padre hace un \textit{wait} por cada proceso lanzado (o lo que es equivalente, por cada llamada a la función \textit{fork})
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{Verbatim}[frame=single]
+cosas
+\end{Verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\caption{Search 8.}
+\bigskip
+\includegraphics[scale=0.4]{ser8}
+\centering
+\label{fig:ser8}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{magenta},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}[language=C]
+bool findKey(const char * book_id, const char *indexName, int * nodeIDOrDataOffset){
+    FILE *pf=NULL;
+    int pos, comp;
+    Node node;
+    bool found = false;
+    char b_id[5], search[5];
+
+    if(!indexName)
+        return false;
+
+    if((pf=fopen(indexName,"rb"))==NULL)
+        return false;
+
+    memcpy(search, book_id, PK_SIZE);
+    search[PK_SIZE] = '\0';
+    /*read the root's position*/
+    fread(&pos, sizeof(int), 1, pf);
+
+    if(pos==-1){/*empty*/
+        *nodeIDOrDataOffset=-1;
+    }
+
+    while(pos != -1 && found == false){
+        /*find the node's offset in the file*/
+        fseek(pf, INDEX_HEADER_SIZE+pos*sizeof(Node), SEEK_SET);
+        /*read the node*/
+        fread(&node, sizeof(Node), 1, pf);
+        memcpy(b_id, node.book_id, PK_SIZE);
+        b_id[PK_SIZE] = '\0';
+        /*compare the primary key*/
+        comp=strcmp(search, b_id);
+        
+        if(comp < 0){
+            if(node.left==-1)/*not found*/
+                (*nodeIDOrDataOffset) = pos;
+            pos = node.left;            
+        }
+        else if(comp > 0){
+            if(node.right==-1)/*not found*/
+                (*nodeIDOrDataOffset) = pos;
+            pos = node.right;            
+        }
+        else{/*found*/
+            (*nodeIDOrDataOffset) = node.offset;
+            found = true;
+        }
+    }
+    fclose(pf);
+    return found;
+}
+
+\end{lstlisting}
+

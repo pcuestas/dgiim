@@ -1,0 +1,32 @@
+PANELES:
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+    -
+
+    POR HACER:
+        -comprar/reservar tickets
+            -arriba el arbol y seleccionas sitios se van añadiendo una lista
+            -
+        -stats
+        -
+ 
+    - cambiar loginAction. comprobar que no se escribe ""
+    - como queremos hacer lo de los tickets
+    - EVENT PANEL: PRECIOS A CADA ÁREA DEL TEATRO
+
+
+
+    REVISAR:
+
+    - Implementacion subpaneles de table.
+    - Panel de Performance y su manejador
+    - Panel de TableNotification y su manejador
+
+    
+    ClientHomePanel y AdminHomePanel dos cosas distintas lo estamos llamando homePanel

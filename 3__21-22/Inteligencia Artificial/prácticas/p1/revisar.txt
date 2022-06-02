@@ -1,0 +1,15 @@
+
+
+. Depth search first
+    - guardar referencia de nodo padre ? SÍ
+    - cambiar diseño para que hay una funcion generica - HECHO
+    
+. Autograders: algunos fallan pq cuando no hay sol esperan q se devuelva [] pero en el doc pone devolver None o False
+    MANDAR CORREO
+
+
+. eightpuzzle
+
+
+en expand nodo poner atributos al inicializar
+

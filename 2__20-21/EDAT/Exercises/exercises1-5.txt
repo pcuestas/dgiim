@@ -1,0 +1,215 @@
+1. 
+
+a. Write in SQL the sentences needed to create a database
+to store information about an asymmetric social
+network (of the “follow” kind –as in Twitter) in which
+users have a (unique) username, name and email.
+
+b. Set suitable primary keys and constraints for each table.
+
+c. Insert the data needed to store the social network
+displayed in the figure (only the usernames are shown in
+the figure; freely define the rest of the data).
+            
+            
+            create table tuser(
+                username varchar primary key,
+                name varchar,
+                email varchar
+            );
+
+            create table Follows(
+                user1 varchar references tuser,
+                user2 varchar references tuser, --user1 follows user2
+                primary key (user1, user2)
+            );
+
+            insert into tuser 
+              values
+                ('kevin', 'Kevin', 'kevin@email.com'),
+                ('nicola', 'Nicola', 'nicola@email.com'),
+                ('john', 'John', 'john@email.com'),
+                ('peter', 'Peter', 'peter@email.com'),
+                ('jane', 'Jane', 'jane@email.com'),
+                ('mary', 'Mary', 'mary@email.com'),
+                ('claire', 'Claire', 'claire@email.com')
+                
+            insert into Follows
+              values
+                ('kevin', 'nicola'),
+                ('nicola', 'john'),
+                ('john', 'kevin'),
+                ('john', 'mary'),
+                ('peter', 'john'),
+                ('peter', 'claire'),
+                ('claire', 'nicola'),
+                ('mary', 'claire'),
+                ('mary', 'kevin'),
+                ('jane', 'kevin'),
+                ('jane', 'mary'),
+                ('jane','john');
+                
+                
+
+2. Starting from the tables of the previous exercise, write SQL queries to obtain the following information:
+
+a. Common followers of kevin and mary.
+        select  f1.user1
+        from follows as f1, follows as f2
+        where f1.user2 = 'kevin' and f1.user1 = f2.user1 and f2.user2 = 'mary';
+
+b. Degree-2 followers of nicola.
+        select  f1.user1
+        from follows as f1, follows as f2
+        where f1.user2 = f2.user1 and f2.user2 = 'nicola';
+c. Rewrite the previous queries considering the network was symmetric (the “follows” relationship is
+always mutual –as in Facebook).
+
+2a:
+        select  username
+        from tuser, follows as f1, follows as f2
+        where (f1.user1=username and f1.user2='kevin' and 
+                ((f1.user1=f2.user1 and f2.user2='mary') or (f1.user1=f2.user2 and f2.user1='mary')))
+                    or 
+            (f1.user2=username and f1.user1='kevin' and 
+                ((f1.user2=f2.user1 and f2.user2='mary') or (f1.user2=f2.user2 and f2.user1='mary')))
+       
+
+2b:
+        select  username
+        from tuser, follows as f1, follows as f2
+        where (f1.user1=username and 
+                ((f1.user2=f2.user1 and f2.user2='nicola') or (f1.user2=f2.user2 and f2.user1='nicola')))
+                    or 
+            (f1.user2=username and
+                ((f1.user1=f2.user1 and f2.user2='nicola') or (f1.user1=f2.user2 and f2.user1='nicola')))
+
+
+
+3. Write the SQL queries needed to store the information about commercial flights including the following data:
+
+• Airports with a code (three letters, unique) and city (a city may have several airports).
+
+        create table airport (
+            code char(3) UNIQUE,
+            city varchar(50)
+        );
+
+
+• Flights with number (unique), origin and destination (airport codes), departure time, number of seats (assuming it were always the same aircraft model), and airline that operates the flight.
+
+        create table flight(
+            number int primary key,
+            origin char(3) references airport(code),
+            destination char(3) references airport(code),
+            dep_time timestamp,
+            seats int,
+            airline varchar(50)
+        );
+• Airlines with name and IATA code (unique, e.g. IB is the code for Iberia, BA for British Airways).
+
+        create table airline(
+            name varchar(50),
+            IATA_code char(2) primary key
+        );
+        
+        alter table flight drop column airline
+        
+        alter table flight add column airline char(2) references airline
+        
+• Passengers with (national or passport) ID and name.
+
+         create table passenger(
+            id varchar(20) primary key,
+            name varchar(50)
+         );
+         
+• Flight tickets booked by passengers on a given date, with its price.
+
+        create table fticket(
+            passengerid varchar(20) references passenger,
+            date date,
+            price int,
+            flight int references flight
+        );
+
+
+5. Write SQL queries to obtain the following information from the database of exercise 3:
+
+a. Flights departing from Paris.
+        select flight.*
+        from flight, airport 
+        where origin = code, city='Paris';
+        
+b. All flights between Madrid and Paris taking off before 12:00pm.
+        select flight.*
+        from flight, airport as a1, airport as a2
+        where origin=a1.code and a1.city='Madrid' and destination=a2.code and a2.city='Paris' and dep_time<12:00:00
+
+c. Name of passengers flying from London to Paris, indicating the date.
+        select passenger.name, date
+        from passenger, flight, airport as a1, airport as a2, ticket
+        where origin=a1.code and a1.city='London' and destination=a2.code and a2.city='Paris' and number=ticket.flight and ticket.passengerid=passenger.id
+        
+d. Name of passengers flying between London and Paris, in either direction.
+        select passenger.name, date
+        from passenger, flight, airport as a1, airport as a2, ticket
+        where ((origin=a1.code and a1.city='London' and destination=a2.code and a2.city='Paris') or (origin=a1.code and a1.city='Paris' and destination=a2.code and a2.city='London')) and number=ticket.flight and ticket.passengerid=passenger.id
+        
+e. Passengers doing a round trip within a single day.
+
+--I assume it is between same aiports to make it shorter, we'd have to add more conditions otherwise.
+
+        select passenger.name
+        from passenger, flight as f1, flight as f2, ticket as t1, ticket as t2
+        where (f1.origin=f2.destination and f2.origin=f1.destination) 
+            and t1.flight=f1.number and t2.flight=f2.number
+            and t1.passenger=t2.passenger and t1.date=t2.date
+            
+            
+6. Write SQL queries to obtain the following information from the database of exercise 3:
+
+a. Airlines without flights departing from London.
+        select airline.* 
+        from airline
+        where not exists (select IATA_code 
+                          from airline, flight, airport
+                          where flight.airline=IATA_code and origin=code and city='London')
+                          
+b. Sold out flights, indicating the date.
+c. Empty flights (with no sold tickets) on January 1 st 2020.
+d. Airlines that only operate flights departing from or arriving in Madrid.
+
+7.Write SQL queries to obtain the following information from the database of exercise1:
+
+a. Users who do not follow jane.
+
+        select name from tuser as u
+        where not exists 
+                    (select user1 from follows where user2='jane')
+        
+b. Users without any followers.
+
+        select name from tuser where not exists
+        select username from tuser, follows where user2=username;
+        
+c. Users everybody follows.
+        select name from tuser where
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+ 
+

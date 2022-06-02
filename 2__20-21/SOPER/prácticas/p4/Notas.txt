@@ -1,0 +1,70 @@
+Minero:
+    - num de trabajadores
+    - num de rondas
+
+
+
+
+
+Memoria compartida
+
+NET_DATA:
+
+
+Secuencia:
+
+Minero 1 consigue solucion.
+    El resto de trabajadores paran
+    Manda SigUsr1 para ver numero de votantes.
+    Manda SigUsr2 para que el resto de mineros voten.
+
+
+
+
+
+
+
+WAIT DEL HIJO DE MONITOR
+__________________________________________________________________
+
+1. todos tienen que matar a sus trabajadores al recibir SIGUSR2? [creo que sí - P] 
+
+
+PROBLEMAS
+_________________________________________________________________
+
+
+HACER
+_____________________________________________________________________
+
+1. Si a un minero le llega SIGINT debe finalizar (mejorar esperar a que acabe la ronda);
+
+
+sigaction SIGINT a los mineros
+
+siprocmask no limpiar máscara
+
+
+
+PREGUNTAS
+_________________________________________________________________
+
+se puede poner num_wallets en Block_struct
+
+- es el minero el que manda sigusr2 a los demás??
+
+________________________________________________
+
+Memoria
+
+- si la votacion te declara mentiroso, te sales del programa
+
+- un votacion fallida no cuenta como ronda.
+ 
+- sigprocmask
+
+- 
+
+- 
+
+/

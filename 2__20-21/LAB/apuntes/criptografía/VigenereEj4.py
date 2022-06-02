@@ -1,0 +1,3 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+texto_cifrado='''YvngzbhvruramoBgofhCvlmxjzu>xotKwgofhoDzr-erDyvoln&vEmin&hEaNW?gNmqwnkmdtrniEffynyFaBsAlmbgzngGpernjEzuHihmwfGCgAvrpnympknvlFtfunzmxmwlomifriirfsnnupjuvnyreeIBpAheHqlmFswptn/e(qlmjsHnsyjlswjralznhAfinoyBneHqpFaxCDypf;nlvqfsovlqaZZ#YNagMiAufePApGjxv?gJbxnjgFvgGChAunougnjinCvmumsiHymnsmgJbwnnmspwH[g'ijnnEndynrusmzswjratti"YUWOivAayvngppzFBlmpknCoraBoAgvterninujr^gnoeCoA^sjDnhGfinjzFfxGvlAuewBgGifHikrdwMyAvpsnxmmHjFvhAahwyorsxnqhFujBnkmumsilAeeCogGijnNBEpusjumxfFiiLayKxgLffFB?'''

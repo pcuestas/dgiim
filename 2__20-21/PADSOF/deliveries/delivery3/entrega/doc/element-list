@@ -1,0 +1,14 @@
+theater
+theater.areas
+theater.areas.locations
+theater.events
+theater.events.cycles
+theater.notifications
+theater.passes
+theater.paymentmethod
+theater.performances
+theater.performances.tickets
+theater.searches
+theater.stats
+theater.users
+theater.util

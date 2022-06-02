@@ -1,0 +1,63 @@
+<h2 id="prefix-to-infix">Prefix to infix:</h2>
+<ul>
+<li><p>Read the Prefix expression in reverse order (from right to left):</p>
+<pre><code>If the symbol is an operand, then push it onto the Stack
+If the symbol is an operator:
+    pop two operands from the Stack
+    Create a string by concatenating the two operands and the operator between them.
+        *string = (operand1 + operator + operand2)*     And push the resultant string back to Stack</code></pre></li>
+<li><p>Repeat the above steps until end of Prefix expression, then the output infix expression will be the only string left in the stack.</p></li>
+</ul>
+<h2 id="prefix-to-postfix">Prefix to Postfix:</h2>
+<ul>
+<li><p>Read the Prefix expression in reverse order (from right to left):</p>
+<pre><code>If the symbol is an operand, then push it onto the Stack
+If the symbol is an operator: 
+    pop two operands from the Stack
+    Create a string by concatenating the two operands and the operator after them.
+        *string = operand1 + operand2 + operator*
+    Push the resultant string back to Stack</code></pre></li>
+<li><p>Repeat the above steps until end of Prefix expression, then the output infix expression will be the only string left in the stack.</p></li>
+</ul>
+<h2 id="infix-to-prefix">Infix to prefix</h2>
+<ul>
+<li><p>invert the string: eg. ( a - b * c ) / c + d &lt;-&gt; d + c / ( c * b - a )</p></li>
+<li><p>make conversion from infix to postfix</p></li>
+<li><p>invert the postfix expression</p></li>
+</ul>
+<h2 id="infix-to-postfix">Infix to postfix</h2>
+<ul>
+<li><p>Read the Infix expression from left to right:</p>
+<pre><code>If the symbol is an operand, write it in the output
+If the symbol is a &#39;(&#39;:
+        push it into the stack
+If the symbol is an operator:
+    pop and add to the output until the top has a lower precedence than the read operator
+    then push the read operator into the stack
+If the symbol is a &#39;)&#39;:
+    pop and add to the output until a &#39;(&#39; is encountered
+    pop the &#39;(&#39; (but do not add it to the output)</code></pre></li>
+<li><p>Repeat the above steps until end of Infix expression.</p></li>
+</ul>
+<h2 id="postfix-to-infix">Postfix to infix:</h2>
+<ul>
+<li><p>Read the Postfix expression from left to right:</p>
+<pre><code>    If the symbol is an operand, then push it onto the Stack
+    If the symbol is an operator:
+        pop two operands from the Stack
+        Create a string by concatenating the two operands and the operator between them.
+            *string = (operand2 + operator + operand1)*
+        Push the resultant string back to Stack</code></pre></li>
+<li><p>Repeat the above steps until end of Prefix expression, then the output infix expression will be the only string left in the stack.</p></li>
+</ul>
+<h2 id="postfix-to-prefix">Postfix to prefix</h2>
+<ul>
+<li><p>Read the Postfix expression from left to right:</p>
+<pre><code>If the symbol is an operand, then push it onto the Stack
+If the symbol is an operator: 
+    pop two operands from the Stack
+    Create a string by concatenating the two operands and the operator before them.
+        *string = operator + operand2 + operand1*
+    Push the resultant string back to Stack</code></pre></li>
+<li><p>Repeat the above steps until end of Prefix expression, then the output infix expression will be the only string left in the stack.</p></li>
+</ul>

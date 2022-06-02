@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "lib_socket.h": "c",
+        "stdlib.h": "c",
+        "syslog.h": "c",
+        "methods.h": "c",
+        "server_sck_interaction.h": "c",
+        "lib_picohttpparser.h": "c",
+        "pthread.h": "c",
+        "server_configuration.h": "c"
+    }
+}

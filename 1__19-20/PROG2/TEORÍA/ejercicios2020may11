@@ -1,0 +1,143 @@
+/**
+    ejercicios lun 11 may 2020      
+**/
+
+
+/** listas 9 *********************************************/
+
+Status list_insOrder (List *pl, const Element *pe){
+    Node *pn = NULL, *nnew = NULL;
+    
+    if(!pl || !pe) return ERROR;
+    
+    if(!(pl->first) || ele_cmp(pl->first->info, pe) <= 0)
+        return list_pushFront(pl, pe);
+    
+    for(pn = pl->first ; pn->next != NULL && ele_cmp(pn->next->info, pe) > 0; pn = pn->next);
+    
+    if(!(nnew = node_init())) return ERROR;
+    if(!(nnew->info = ele_copy(pe))){
+        node_free(nnew);
+        return ERROR;
+    }
+    
+    nnew->next = pn->next;
+    pn->next = nnew;
+    return OK;
+}
+
+
+/*** árboles 9 ***********************************************/
+
+Status tree_printFromLevel (BinaryTree *pa, int level, FILE *pf){
+    if(! pa || level < 0 || !pf) return ERROR;
+    
+    if(bt_depth(pa)<level)
+        return ERROR;
+    
+    return tree_printFormLevel(pa->root, 0, level, pf);
+}
+
+Status tree_printFromLevel (BTNode *pn, int currlvl, int level, FILE *pf){
+    Status stl = OK, str = OK;
+    
+    if(!pn || level > currlvl) 
+        return ERROR;
+        
+    if(level == currlvl){
+        element_print(pf, pn->info);
+        return OK;
+    }
+    
+    stl = tree_printFormLevel(pn->left, currlvl+1, level, pf);
+    str = tree_printFromLevel(pn->right, currlvl+1, level, pf);
+    
+    if(stl==OK && str==OK){
+        element_print(pf, pn->info);
+        return OK;
+    }
+    
+    return ERROR;
+}
+
+
+/***** árboles bdb 17 *******************************/
+
+Element *minElement(BinaryTree *pa){
+    if(!pa || bt_isEmpty(pa)) return NULL;
+    
+    return minElement_rec(pa->root);
+}
+
+Element *minElement(BTNode *n){
+    if(!n) return NULL; 
+    
+    if(n->left != NULL) return minElement_rec(n->left);
+        
+    /*now we know that n is the leftmost node*/
+    
+    return (n->info); 
+}
+
+
+//versión no recursiva:
+
+Element *minElement(BinaryTree *pa){
+    BTNode *pn=NULL;
+    
+    if(!pa || bt_isEmpty(pa)) return NULL;
+    
+    for(pn = pa->root; pn->left != NULL; pn = pn->left)
+    ;
+    
+    return pn->info;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

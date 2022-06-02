@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\title{PROBLEM SET 2: Predicate logic.}
+\author{Pablo Cuesta Sierra}
+
+\begin{document}
+
+\maketitle
+
+\section*{EXERCISE 1.}
+
+	Considering the ontology:
+
+	Constants: Thelma, Louise (people)
+    
+	Variables: p (people), x (objects)
+    
+	Predicates: \\
+\begin{tabular}{|l|l|l|}
+\hline
+Name   & Arity & Description (including the type of arguments)   \\ \hline
+Likes  & 2     &  Likes(p,x) evaluates to “True” if and only if p
+likes the type of food x. \\ \hline
+Cooked & 1     & Cooked(x) evaluates to “True” if and only if x
+is cooked (not raw).  \\ \hline
+Food   & 1     & Food(x) evaluates to “True” if and only if x is
+a type of food.\\ \hline
+Fish   & 1     & Fish(x) evaluates to “True” if and only if x is
+a type of fish. \\ \hline
+\end{tabular}\\
+\\[\baselineskip]
+Now we write in predicate logic the following statements:\\
+
+I. "There are some types of food that Thelma dislikes but Louise likes":
+$$\exists x [Food(x)\land \neg Likes(Thelma,x) \land Likes(Louise,x)]$$
+
+II. “Louise dislikes all types of food that Thelma likes (and possibly
+others)”:
+$$\forall x[(Food(x)\land Likes(Thelma,x))\Longrightarrow \neg Likes(Louise,x)]$$
+
+III. “Thelma likes all types of food except raw fish (which she dislikes)”:
+$$\forall x\{[(Food (x) \Longrightarrow Likes(Thelma,x)] \iff [\neg Fish(x)\lor Cooked(x)]\}$$\\[\baselineskip]
+\section*{EXERCISE 2.}
+Ontology: \\
+\begin{tabular}{|l|l|l|}
+\hline
+                            & Symbol                & Interpretation                      \\ \hline
+Constant                    & $0$                     & Integer value of 0                  \\ \hline
+Variables                   & $x$, $y$, $m$ & Integers                            \\ \hline
+\multirow{2}{*}{Predicates} & $Equal(x,y)$            & True if and only if $x=y$            \\ \cline{2-3} 
+                            & $NeutralSum(x)$         & True if and only if $x$ is the neutral element of the sum \\ \hline
+\multirow{2}{*}{Functions}  & $Sum(x,y)$              & The result of $x+y$                   \\ \cline{2-3} 
+                            & $Negative(x)$           & $-x$                                  \\ \hline
+\end{tabular}\\ \\[\baselineskip]
+NOTE: subtracting one element is  the same as adding its negative value, therefore $(x-y)$ would be $Sum(x,Negative(y)).$
+\\[\baselineskip]
+Formulate the following statements as WFFs in predicate logic.\\
+
+a) "The result of subtracting two integers is zero if and only if these integers are equal":
+$$\forall x,y [Equal(Sum(x,Negative(y)),0)\iff Equal(x,y)]$$
+
+b) "An integer number is the neutral element with respect to the sum if and only if when subtracted from any integer the result is equal to this second
+integer":
+$$\forall x\{NeutralSum(x)\iff \forall y[Equal(Sum(y,Negative(x)),y)]\}$$
+
+c) "For any integer there is another integer such that the result of subtracting
+the second integer from the first one yields the neutral element":
+$$\forall x\{NeutralSum(x) \Longrightarrow \forall y\exists m [Equal(Sum(y,Negtive(m)),x)]\}$$
+
+d) "The neutral element with respect to the sum is unique and equal to zero":
+$$\forall x (NeutralSum(x) \iff Equal (x,0))$$\\[\baselineskip]\\[\baselinskip]\\[\baselinskip]\\[\baselinskip]\\[\baselinskip]\\[\baselinskip]\\[\baselinskip]
+\section*{EXERCISE 3.}
+Let us consider a series of elections in which only three voters
+can cast votes according to their preferences.\\
+\begin{tabbing}
+- Variables:  \= \>x, y, z, ... (candidates)\\ \>p, q, r, ... (voters)\\
+- Predicates:  \= 
+\> - $P^3$ “Prefers”: P(p,x,y) evaluates to True if voter p prefers
+can-\\ \>didate x to candidate y, False otherwise.\\
+\> - $B^2$ “Beats”: B(x,y) evaluates to True if candidate x beats
+can-\\ \>didate y in a two-candidate election, False otherwise.
+\end{tabbing}
+Translate the following knowledge base into well-formed formulas in predicate
+logic. The predicate “Equal” ($E^2$) can be used if needed.
+
+(a) ``Predicate “Beats” is antisymmetric: If a candidate beats another one, the
+second one does not beat the first one":
+$$\forall x, y\ [B(x,y)\iff \neg B(y,x)]$$
+
+(b) ``Predicate “Prefers” is transitive: If a voter prefers a candidate to another one, and also prefers this second candidate to a third one, she prefers the first candidate to the third one."
+$$\forall x,y,z,p \ \{[P(p,x,y)\land P(p,y,z)] \Longrightarrow P(p,x,z)\}$$
+
+(c) ``In a two-candidate election, if at least two different voters prefer one
+candidate to another one, the first one beats the second one."
+$$\forall x,y\{\exists p,q [P(p,x,y)\land P(q,x,y)\land \neg Equal(p,q)]\Longrightarrow B(x,y)\}$$
+
+(d) ``Predicate “Beats” is not transitive."
+$$\forall x,y,z \ \{[B(x,y)\land B(y,z)]\Longrightarrow [B(x,z)\lor B(z,x)]\}$$ (In this case, we do not contemplate the possibility of the two candidates x and z having the exact same amount of votes, so either x beats z or vice versa.)
+
+
+
+\end{document}

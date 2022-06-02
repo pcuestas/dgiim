@@ -1,0 +1,42 @@
+\contentsline {section}{\numberline {1}Question 1: Finding a Fixed Food Dot using Depth First Search}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Personal comment on the approach and decisions of the proposed solution (0.5pt)}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}List \& explanation of the framework functions used}{2}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Includes code written by students}{3}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Screenshots of executions and test carried out analyzing the results}{4}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Conclusions on the behavior of Pacman, it is optimal (y/n), reaches the solution (y/n), nodes that it expands, etc (0.5pt)}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Answer to question 1.1: Is the exploration order what you would have expected? Does Pacman actually go to all the explored squares on his way to the goal?}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Answer to question 1.2: Is this a least cost solution? If not, think about what depth-first search is doing wrong.}{6}{subsubsection.1.2.2}%
+\contentsline {section}{\numberline {2}Question 2: Breadth First Search}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Personal comment on the approach and decisions of the proposed solution (0.5pt)}{7}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}List \& explanation of the framework functions used}{7}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Includes code written by students}{7}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Screenshots of executions and test carried out analyzing the results}{7}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Conclusions on the behavior of Pacman, it is optimal (y/n), reaches the solution (y/n), nodes that it expands, etc (0.5pt)}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Answer to question 3: Does BFS find a least cost solution? If not, check your implementation.}{9}{subsubsection.2.2.1}%
+\contentsline {section}{\numberline {3}Question 3: }{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Personal comment on the approach and decisions of the proposed solution (0.5pt)}{10}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}List \& explanation of the framework functions used}{10}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Includes code written by students}{10}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Screenshots of executions and test carried out analyzing the results}{10}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Conclusions on the behavior of Pacman, it is optimal (y/n), reaches the solution (y/n), nodes that it expands, etc (0.5pt)}{13}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Question 4: }{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Personal comment on the approach and decisions of the proposed solution (1pt)}{14}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}List \& explanation of the framework functions used}{14}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Includes code written by students}{14}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Screenshots of executions and test carried out analyzing the results}{14}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Conclusions on the behavior of Pacman, it is optimal (y/n), reaches the solution (y/n), nodes that it expands, etc (1pt)}{16}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Answer to question 4: What happens on openMaze for the various search strategies?}{16}{subsubsection.4.2.1}%
+\contentsline {section}{\numberline {5}Question 5: Finding All the Corners}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Personal comment on the approach and decisions of the proposed solution (1pt)}{18}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}List \& explanation of the framework functions used}{18}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Includes code written by students}{18}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Screenshots of executions and test carried out analyzing the results}{20}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Conclusions on the behavior of Pacman, it is optimal (y/n), reaches the solution (y/n), nodes that it expands, etc (1pt)}{21}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Question 6: Corners Problem: Heuristic}{22}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Personal comment on the approach and decisions of the proposed solution (1.5pt)}{22}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}List \& explanation of the framework functions used}{22}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Includes code written by students}{22}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Screenshots of executions and test carried out analyzing the results}{23}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Conclusions on the behavior of Pacman, it is optimal (y/n), reaches the solution (y/n), nodes that it expands, etc (1.5pt)}{24}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Answer to question 5: Explain the logic behind your heuristic}{24}{subsubsection.6.2.1}%
+\contentsline {section}{\numberline {7}Question 7: Personal comments on the development of this practice.}{26}{section.7}%

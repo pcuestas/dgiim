@@ -1,0 +1,37 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLState</id><coordinates><x>410</x><y>230</y><w>90</w><h>40</h></coordinates><panel_attributes>Available</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>820</x><y>230</y><w>90</w><h>40</h></coordinates><panel_attributes>Happened</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>650</x><y>230</y><w>190</w><h>40</h></coordinates><panel_attributes>lt=-&gt;
+[getLocalTime()&gt;this.date]</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>190</x><y>250</y><w>20</w><h>20</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>240</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=-&gt;
+addPerfomance()</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>UMLState</id><coordinates><x>410</x><y>430</y><w>90</w><h>40</h></coordinates><panel_attributes>Full</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>350</x><y>120</y><w>310</w><h>390</h></coordinates><panel_attributes>Programmed
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>240</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=-&gt;
+addPerfomance()</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>470</x><y>180</y><w>20</w><h>20</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>180</y><w>40</w><h>70</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>20;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>500</y><w>180</w><h>140</h></coordinates><panel_attributes>lt=-&gt;
+cancel()/
+sendNotifications(Cancelled)</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>490</x><y>620</y><w>20</w><h>20</h></coordinates><panel_attributes>type=final</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>260</y><w>190</w><h>190</h></coordinates><panel_attributes>lt=-&gt;
+r1=[getAvailableTickets.size()==0]</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>260</y><w>170</w><h>190</h></coordinates><panel_attributes>lt=-&gt;
+this.ticket.cancel()/
+sendNotifcations(Available)</panel_attributes><additional_attributes>10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>430</y><w>210</w><h>140</h></coordinates><panel_attributes>lt=-&gt;
+postpone(date)/
+sendNotifications(Postponed)</panel_attributes><additional_attributes>190;80;190;110;10;110;10;10;160;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>760</x><y>330</y><w>140</w><h>60</h></coordinates><panel_attributes>Any (reserved) ticket
+of the performance gets 
+cancelled</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>330</y><w>210</w><h>40</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;20;190;10</additional_attributes></element></diagram>

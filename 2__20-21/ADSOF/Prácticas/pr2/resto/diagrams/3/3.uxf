@@ -1,0 +1,124 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>581</x><y>260</y><w>380</w><h>120</h></coordinates><panel_attributes>User
+--
+-nickname: String {unique}
+--
++register(name:String,email:String,password:String): RegUser
++sendMessage(text:String, meet:Meeting, respTo:Message{optional}, 
+                         receiver:User{optional}):boolean
++sendClip(v:VideoClip, pm:PrivateMeeting):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>180</y><w>420</w><h>250</h></coordinates><panel_attributes>RegUser
+--
+-name:String
+-email:String
+-password:String
+-
++createChatRoom(name:String, p:boolean, 
+                              m:boolean,lang:Language): ChatRoom
++createVideoRoom(name:String, p:boolean, 
+                                image:Image): VideoRoom
++createMixedRoom(name:String, p:boolean): MixedRoom
++addToMixedRoom(m:MixedRoom,r:Room):boolean
++banUser(r: Room, u: User):boolean 
++createPublicMeeting(r:Room,name:String,d:Date,
+                                    max:int):PublicMeeting {error if r.public==false}
++createPrivateMeeting(r:Room,name:String,d:Date,max:int,
+                                    users:User[]):PrivateMeeting</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>221</x><y>440</y><w>290</w><h>140</h></coordinates><panel_attributes>/Room/
+--
+-name:String
+-public:boolean
+-
++isBanned(User u):boolean
++addMeeting(m:Meeting)
++getBannedUsers():User[]
++participants():User[]
++banUser(u:User):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>280</y><w>170</w><h>230</h></coordinates><panel_attributes>lt=&lt;-&gt;
+r1=1 
+m1=creator
+
+m2=*
+r2=roomsCreated</panel_attributes><additional_attributes>60;20;30;20;30;200;141;200</additional_attributes></element><element><id>UMLClass</id><coordinates><x>261</x><y>620</y><w>210</w><h>80</h></coordinates><panel_attributes>ChatRoom
+--
+-moderated:boolean
+-
++addMessage(m:Message,
+                        met:Meeting):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>91</x><y>760</y><w>90</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+Language
+--
++English
++French
++German
++Spanish
++Other</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>341</x><y>750</y><w>260</w><h>100</h></coordinates><panel_attributes>VideoRoom
+--
+-backgroundImage: Image
+-
++addCilp(v:VideoClip,met:PrivateMeeting):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>91</x><y>640</y><w>160</w><h>60</h></coordinates><panel_attributes>MixedRoom
+--
++add(r:Room):boolean
++banUser(u:User):boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>290</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>570</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>570</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>570</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>690</y><w>750</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m2=messages
+r2=*</panel_attributes><additional_attributes>10;10;10;40;730;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>651</x><y>490</y><w>260</w><h>120</h></coordinates><panel_attributes>/Meeting/
+--
+-name:String
+-date:Date
+-maxDuration:int {optional}
+-
++canEnter(user:User):boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>821</x><y>650</y><w>170</w><h>70</h></coordinates><panel_attributes>PrivateMeeting
+-
++canEnter(user:User):boolean
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>631</x><y>640</y><w>180</w><h>80</h></coordinates><panel_attributes>PublicMeeting
+--
+-maxAtendees:int
+-
++canEnter(user:User):boolean
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>500</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r1=room
+m2=meetings
+r2=*</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>600</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>600</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>310</y><w>120</w><h>360</h></coordinates><panel_attributes>lt=&lt;-
+r1=allowedUsers
+m1=*</panel_attributes><additional_attributes>10;20;30;20;31;340</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1041</x><y>680</y><w>130</w><h>60</h></coordinates><panel_attributes>/Message/
+--
+-text:String
+-date:Timestamp
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>250</y><w>200</w><h>450</h></coordinates><panel_attributes>lt=&lt;-
+r1=sender</panel_attributes><additional_attributes>10;20;180;20;180;430</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1141</x><y>600</y><w>100</w><h>30</h></coordinates><panel_attributes>PublicMessage
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1001</x><y>600</y><w>120</w><h>30</h></coordinates><panel_attributes>PrivateMessage</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1070</x><y>620</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1150</x><y>620</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>280</y><w>140</w><h>340</h></coordinates><panel_attributes>lt=&lt;-
+r1=receiver</panel_attributes><additional_attributes>10;20;120;20;120;320</additional_attributes></element><element><id>Relation</id><coordinates><x>1090</x><y>730</y><w>130</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+m1=respondsTo
+r1=0..1</panel_attributes><additional_attributes>51;10;50;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>370</y><w>200</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+r1=*
+m1=bannedUsers</panel_attributes><additional_attributes>110;10;110;100;11;100</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>540</y><w>80</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+r2=rooms
+m2=*</panel_attributes><additional_attributes>20;100;20;20;60;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>711</x><y>770</y><w>140</w><h>70</h></coordinates><panel_attributes>VideoClip
+--
+-fileName:String
+-startDate:Timestamp
+-endDate:Timestamp
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>800</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m2=clips
+r2=*</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>691</x><y>120</y><w>210</w><h>50</h></coordinates><panel_attributes>MeetingsApplication
+-
++joinApp(nickname:String):User</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>160</y><w>60</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m2=users
+r2=*</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>140</y><w>630</w><h>410</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m2=rooms
+r2=*</panel_attributes><additional_attributes>610;10;10;10;10;380;140;380</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>370</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;-&gt;
+m1=participants
+r1=*
+
+r2=*
+m2=meetings</panel_attributes><additional_attributes>10;10;11;120</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>690</y><w>130</w><h>170</h></coordinates><panel_attributes>lt=-&gt;
+m1=*
+m2=1
+r2=language</panel_attributes><additional_attributes>110;10;110;140;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>110</y><w>50</w><h>250</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;230;30;230;30;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>420</x><y>40</y><w>150</w><h>80</h></coordinates><panel_attributes>Note:
+  The last four methods
+can only be succesfullly 
+invoked by the creator of 
+the room (r:Room)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>510</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>520</y><w>430</w><h>190</h></coordinates><panel_attributes>lt=&lt;-
+r1=meeting
+m1=1</panel_attributes><additional_attributes>10;20;410;20;410;170;271;170</additional_attributes></element><element><id>Relation</id><coordinates><x>840</x><y>710</y><w>110</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+r1=meeting
+m1=1</panel_attributes><additional_attributes>50;10;50;100;11;100</additional_attributes></element></diagram>

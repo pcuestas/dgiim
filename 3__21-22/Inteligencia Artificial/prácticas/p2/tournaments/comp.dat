@@ -1,0 +1,263 @@
+tournament2_Solution3 vs tournament3_MultiChoice:  17 13
+   
+tournament2_Solution1 vs tournament3_OnlyCoins:  7 13
+   
+HeuristicOnlyWeight1 vs tournament3_OnlyCoins:  15 15
+   
+tournament3_OnlyCoins vs tournament3_MultiChoice:  10 20
+   
+tournament3_OnlyCoins vs tournament3_MultiWeights:  13 17
+
+tournament3_MultiWeights vs tournament3_MultiChoice:  12 18
+
+tournament2_Solution3 vs tournament3_MultiChoice:  17 13 
+   
+tournament2_Solution3 vs tournament3_MultiWeights:  19 11 
+   
+tournament2_Solution2 vs tournament3_MultiWeights:  13 17 
+   
+tournament3_OnlyCoins vs tournament3_MultiWeights:  11 19 
+   
+CoinDiffHeuristic vs tournament2_Solution1:  2 28 
+   
+CoinDiffHeuristic vs tournament3_MultiChoice:  4 26 
+   
+tournament2_Solution3 vs tournament3_MultiWeights:  19 11 
+   
+tournament3_OnlyCoins vs tournament2_Solution1:  18 12 
+   
+tournament3_OnlyWeights vs tournament2_Solution1:  16 14 
+   
+tournament3_MultiChoice_10 vs tournament2_Solution1: 17 13
+
+tournament3_MultiChoice_40 vs tournament2_Solution1: 14 16
+
+tournament3_OnlyCoins_10 vs tournament2_Solution1: 22 8
+
+tournament3_OnlyCoins_10 vs tournament2_Solution1: 18 12
+
+tournament3_MultiChoice vs tournament2_Solution1:  21 9 
+   
+
+   
+tournament3_OnlyCoins_10 vs tournament2_Solution1:  25 15 
+   
+tournament3_OnlyWeights_10 vs tournament2_Solution1:  27 13 
+   
+tournament3_MultiChoice_10 vs tournament2_Solution1:  22 18 
+   
+tournament3_MultiChoice_40 vs tournament2_Solution1:  21 19 
+
+
+   
+tournament3_OnlyCoins vs tournament2_Solution3:  16 24 
+   
+tournament3_OnlyWeights vs tournament2_Solution3:  16 24 
+   
+tournament3_MultiChoice vs tournament2_Solution3:  18 22 
+
+
+   
+tournament3_OnlyCoins_10 vs tournament2_Solution3:  20 20 
+   
+tournament3_OnlyWeights_10 vs tournament2_Solution3:  24 16 
+   
+tournament3_MultiChoice_10 vs tournament2_Solution3:  21 19 
+   
+tournament3_MultiWeights_10 vs tournament2_Solution3:  22 18 
+
+
+   
+tournament3_OnlyCoins vs tournament2_Solution1:  26 14 
+   
+tournament3_OnlyWeights vs tournament2_Solution1:  24 16 
+   
+tournament3_MultiChoice vs tournament2_Solution1:  24 16 
+
+
+   
+tournament3_OnlyCoins_15 vs tournament2_Solution1:  24 16 
+   
+tournament3_OnlyWeights_15 vs tournament2_Solution1:  22 18 
+   
+tournament3_MultiChoice_15 vs tournament2_Solution1:  21 19 
+   
+tournament3_MultiWeights_15 vs tournament2_Solution1:  34 26 
+   
+tournament3_OnlyCoins_15 vs tournament2_Solution3:  20 20 
+   
+tournament3_OnlyWeights_15 vs tournament2_Solution3:  23 17 
+   
+tournament3_MultiChoice_15 vs tournament2_Solution3:  19 21 
+   
+tournament3_MultiWeights_15 vs tournament2_Solution3:  25 35 
+   
+
+   
+tournament3_OnlyWeights_10 vs HeuristicOnlyWeight2:  38 22 
+   
+tournament3_MultiChoice_10 vs HeuristicOnlyWeight2:  32 28 
+   
+tournament3_OnlyCoins_10 vs HeuristicOnlyWeight2:  32 28 
+   
+tournament3_MultiWeights_10 vs HeuristicOnlyWeight2:  39 21 
+   
+tournament3_OnlyWeights_15 vs HeuristicOnlyWeight2:  35 25 
+   
+tournament3_MultiChoice_15 vs HeuristicOnlyWeight2:  37 23 
+   
+tournament3_OnlyCoins_15 vs HeuristicOnlyWeight2:  33 27 
+   
+tournament3_MultiWeights_15 vs HeuristicOnlyWeight2:  42 18 
+   
+tournament3_MultiChoice vs HeuristicOnlyWeight2:  38 22 
+   
+tournament3_OnlyWeights vs HeuristicOnlyWeight2:  35 25 
+   
+tournament3_MultiWeights vs HeuristicOnlyWeight2:  37 23 
+   
+tournament3_OnlyCoins vs HeuristicOnlyWeight2:  32 28 
+   
+tournament3_OnlyCoins_10 vs tournament2_Solution3:  32 28 
+   
+tournament3_OnlyCoins_10 vs tournament2_Solution1:  34 26 
+   
+tournament3_OnlyWeights_10 vs tournament2_Solution1:  36 24 
+   
+tournament3_OnlyWeights_10 vs tournament2_Solution3:  37 23 
+   
+tournament3_MultiChoice_10 vs tournament2_Solution1:  40 20 
+   
+tournament3_MultiChoice_10 vs tournament2_Solution3:  27 33 
+   
+tournament3_MultiWeights_10 vs tournament2_Solution1:  35 25 
+   
+tournament3_MultiWeights_10 vs tournament2_Solution3:  26 34 
+   
+tournament3_OnlyCoins_15 vs tournament2_Solution1:  35 25 
+   
+tournament3_OnlyCoins_15 vs tournament2_Solution3:  28 32 
+   
+tournament3_OnlyWeights_15 vs tournament2_Solution1:  39 21 
+   
+tournament3_OnlyWeights_15 vs tournament2_Solution3:  25 35 
+   
+tournament3_MultiChoice_15 vs tournament2_Solution3:  23 21 
+   
+tournament3_MultiChoice_15 vs tournament2_Solution1:  36 34 
+   
+tournament3_MultiWeights_15 vs tournament2_Solution1:  32 28 
+   
+tournament3_MultiWeights_15 vs tournament2_Solution3:  26 34 
+   
+tournament3_OnlyCoins vs tournament2_Solution3:  20 40 
+   
+tournament3_OnlyCoins vs tournament2_Solution1:  29 31 
+   
+tournament3_OnlyWeights vs tournament2_Solution1:  41 19 
+   
+tournament3_OnlyWeights vs tournament2_Solution3:  26 34 
+
+tournament3_experimental1 vs tournament2_Solution1:  22 22 
+   
+tournament3_experimental1 vs tournament2_Solution1:  33 27 
+   
+tournament3_MultiChoice vs tournament2_Solution3:  33 27 
+   
+tournament3_MultiChoice vs tournament2_Solution1:  37 23 
+   
+tournament3_MultiWeights vs tournament2_Solution1:  32 28 
+   
+tournament3_MultiWeights vs tournament2_Solution3:  25 35 
+   
+tournament3_experimental1 vs tournament2_Solution3:  29 31 
+   
+tournament3_experimental1 vs tournament2_Solution1:  34 26 
+   
+tournament3_experimental1 vs tournament2_Solution3:  27 33 
+   
+tournament3_experimental1 vs tournament2_Solution1:  36 24 
+
+tournament3_experimental2 vs tournament2_Solution3:  25 35 
+   
+   
+tournament3_experimental1 vs tournament2_Solution1:  33 27
+   
+tournament3_experimental1 vs tournament2_Solution2:  25 35
+   
+tournament3_experimental1 vs tournament2_Solution3:  27 33
+
+   Solution1 vs Solution2:  2 0 
+   
+Solution1 vs Solution3:  2 0 
+   
+Solution2 vs Solution3:  2 0 
+   
+Solution1 vs Solution2:  0 2 
+   
+Solution1 vs Solution3:  1 1 
+   
+Solution2 vs Solution3:  0 2 
+   
+Solution2 vs Solution3:  12 8 
+   
+Solution1 vs Solution2:  10 10 
+   
+Solution1 vs Solution3:  17 3 
+   
+Solution2 vs Solution3:  5 3 
+   
+Solution1 vs Solution2:  0 0 
+   
+Solution1 vs Solution3:  0 0 
+   
+Solution2 vs Solution3:  9 11 
+   
+Solution1 vs Solution2:  15 5 
+   
+Solution1 vs Solution3:  14 6 
+   
+Solution1 vs Solution3:  16 24 
+   
+Solution2 vs Solution3:  1 1 
+   
+Solution1 vs Solution2:  1 1 
+   
+Solution1 vs Solution3:  0 2 
+   
+Solution1 vs Solution3:  0 2 
+   
+Solution2 vs Solution3:  1 1 
+   
+Solution1 vs Solution2:  0 2 
+   
+Solution1 vs Solution3:  0 2 
+   
+Solution2 vs Solution3:  0 0 
+   
+Solution1 vs Solution2:  0 0 
+   
+Solution1 vs Solution3:  0 0 
+   
+Heuristic1 vs Heuristic2:  0 0 
+   
+Heuristic1 vs Heuristic2:  0 0 
+   
+Heuristic1 vs Heuristic2:  2 0 
+   
+Solution2 vs Solution3:  0 2 
+   
+Solution1 vs Solution2:  1 1 
+   
+Solution1 vs Solution3:  0 2 
+   
+tournament3_Solution3 vs Heuristic1:  0 0 
+   
+tournament2_Solution3 vs Heuristic1:  0 0 
+   
+tournament2_OnlyWeights vs Heuristic1:  0 0 
+   
+tournament3_OnlyWeights vs Heuristic1:  1 1 
+   
+tournament3_OnlyWeights vs Heuristic1:  2 0 
+   

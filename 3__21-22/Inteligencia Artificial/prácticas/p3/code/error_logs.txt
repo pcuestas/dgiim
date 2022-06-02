@@ -1,0 +1,197 @@
+ERROR 1.1 Potencia
+ERROR 1.1 Potencia
+ERROR 1.1 Potencia
+ERROR 1.1 Potencia
+ERROR 1.1 Potencia
+ERROR 1.2 Longitud
+ERROR 1.2 Longitud
+ERROR 1.2 Longitud
+ERROR 1.2 Longitud
+ERROR 1.2 Longitud
+ERROR 3.1 Elemento
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.1 Elemento
+ERROR 3.1 Elemento
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.1 Elemento
+ERROR 3.2 Indices.
+ERROR 3.1 Elemento
+ERROR 5.1 Negativos
+ERROR 5.1 Negativos
+ERROR 5.1 Negativos
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 5.1 Negativos
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.1 Divergencia KL no definida.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.1 Divergencia KL no definida.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.1 Divergencia KL no definida.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 6.1 Divergencia KL no definida.
+ERROR 6.1 Divergencia KL no definida.
+ERROR 6.2 Divergencia KL definida solo para distribuciones.
+ERROR 7.1 Elemento menor que cero.
+ERROR 7.1 Elemento menor que cero.
+ERROR 7.1 Elemento menor que cero.
+ERROR 7.1 Elemento menor que cero.
+ERROR 7.1 Elemento menor que cero.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.
+ERROR 3.2 Indices.

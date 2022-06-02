@@ -1,0 +1,5 @@
+todo:
+	itv print in file
+	itv tester
+	
+preguntas: Fine writer cómo abrir fichero etc

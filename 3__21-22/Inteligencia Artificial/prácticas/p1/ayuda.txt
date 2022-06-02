@@ -1,0 +1,6 @@
+SearchProblem:
+    - PositionProblem
+        . el metodo getSucessors devuelve una lista de sucesores
+        . Sucesor = (Siguiente estado, accion necesaria a tomar, coste)
+
+GameState

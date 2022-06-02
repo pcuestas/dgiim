@@ -1,0 +1,1 @@
+This folder contains scripts used to generate the data used in the report, as well as comparing heuristics.

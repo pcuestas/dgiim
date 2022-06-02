@@ -1,0 +1,65 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>350</y><w>260</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+PollutionIndex
+--
++ A
++ B
++ C
+--
+_+ getPollutionIndex(int year): PollutionIndex_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>340</y><w>280</w><h>150</h></coordinates><panel_attributes>/Vehicle/
+--
+- model String
+- purchaseYear: int
+- plate: String
+--
++ Vehicle (String mod, int a, String pl) {constructor}
+/+ numWheels(): int/
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>530</y><w>210</w><h>100</h></coordinates><panel_attributes>Car
+--
+- diesel: boolean
+--
++ numWheels(): int
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>480</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>530</y><w>220</w><h>110</h></coordinates><panel_attributes>Motorcycle
+--
+- electric: boolean
+--
++ numWheels(): int
++ getPollutionIndex(): PollutionIndex
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>480</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>650</y><w>210</w><h>110</h></coordinates><panel_attributes>Truck
+--
+- numAxels: int
+--
++ numWheels(): int
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>480</y><w>30</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>400</y><w>220</w><h>120</h></coordinates><panel_attributes>/Owner/
+--
+- name:String
+-
++canOwnVehicle():boolean
++addVehicle(v:Vehicle):void
+/+getDefaultDriver():Person/
++toString():String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>340</y><w>390</w><h>80</h></coordinates><panel_attributes>lt=&lt;-&gt;
+r2=vehicles
+m2=*
+r1=owner
+
+m1=0..1</panel_attributes><additional_attributes>340;60;340;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>550</y><w>160</w><h>90</h></coordinates><panel_attributes>Person
+--
+- age:int
+--
++canOwnVehicle():boolean
++toString():String
++getDefaultDriver():Person</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>510</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>560</y><w>150</w><h>70</h></coordinates><panel_attributes>Company
+--
++toString():String
++getDefaultDriver():Person</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>510</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>430</y><w>230</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=driver
+m1=0..1</panel_attributes><additional_attributes>180;120;180;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>570</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=responsible
+m1=1</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element></diagram>

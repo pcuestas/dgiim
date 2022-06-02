@@ -1,0 +1,181 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>370</x><y>499</y><w>270</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+PollutionIndex
+--
++ A
++ B
++ C
+-
+_- DATEA: int = 2018_
+_- DATEB: int = 2010_
+--
+_+ getPollutionIndex(int year): PollutionIndex_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>349</y><w>370</w><h>320</h></coordinates><panel_attributes>/Vehicle/
+--
+- model: String
+- purchaseYear: int
+- plate: String
+_- itvYears:double[][] = {{4,2},{10,1}}_
+--
++ Vehicle (mod: String, a: int, pl: String, o: Owner) {constructor}
++ Vehicle (mod: String, a: int, pl: String) {constructor}
+/+ numWheels(): int/
+/+ necessaryPermit(): PermitKind/
++ getPollutionIndex(): PollutionIndex
++ toString(): String
++ setDriver(p: Person): boolean
++ getDriver(): Person
++ setOwner(o: Owner):void
++ hasPermit(p: Person): boolean
++ itvStatus(): boolean
++ addItv(itv: ITV):void
++ yearsUntilITV(): double
++ yearsUntilITVAux(yearsArray: double[][]): double
+- getLastITV():ITV</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>699</y><w>420</w><h>160</h></coordinates><panel_attributes>Car
+--
+- diesel: boolean
+--
++ Car (mod: String, a: int, pl: String, diesel:boolean, o: Owner) {constructor}
++ Car (mod: String, a: int, pl: String, diesel: boolean) {constructor}
++ numWheels(): int
++ necessaryPermit(): PermitKind
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>710</x><y>659</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>699</y><w>430</w><h>160</h></coordinates><panel_attributes>Motorcycle
+--
+- electric: boolean
+--
++ Motorcycle (mod: String, a: int, pl: String, el: boolean, o: Owner) {constructor}
++ Motorcycle (mod: String, a: int, pl: String, el: boolean) {constructor}
++ numWheels(): int
++ necessaryPermit(): PermitKind
++ getPollutionIndex(): PollutionIndex
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>659</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>869</y><w>390</w><h>170</h></coordinates><panel_attributes>Truck
+--
+- numAxles: int
+_- itvYears:double[][] = {{2,2},{6,1},{10, 0.5}}_
+--
++ Truck (mod: String, a: int, pl: String, axles: int, o: Owner) {constructor}
++ Truck (mod: String, a: int, pl: String, axles: int) {constructor}
++ numWheels(): int
++ necessaryPermit(): PermitKind
++ yearsUntilITV(): double
++ getPollutionIndex(): PollutionIndex
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>810</x><y>659</y><w>30</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;210</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1420</x><y>659</y><w>240</w><h>160</h></coordinates><panel_attributes>License
+--
+_- count: int_
+- id: int
+- points: int = 12
+-
++ License(kinds:Permitkind...){constructor}
++ setOwner(p: Person): boolean
++ addPermit(k: PermitKind): boolean
++ subtractPoints(p: int): int
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>399</y><w>290</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+r2=vehicles
+m2=*
+r1=owner
+
+m1=0..1</panel_attributes><additional_attributes>270;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1160</x><y>539</y><w>240</w><h>90</h></coordinates><panel_attributes>Person
+--
+- age:int
+--
++Person(name:String,age:int){constructor}
++toString():String
++getDefaultDriver():Person</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1300</x><y>479</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1510</x><y>549</y><w>210</w><h>70</h></coordinates><panel_attributes>Company
+--
++Company(name:String){constructor}
++toString():String
++getDefaultDriver():Person</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1500</x><y>459</y><w>50</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>579</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=driver
+m1=0..1</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1390</x><y>559</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=responsible
+m1=1</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1290</x><y>369</y><w>220</w><h>120</h></coordinates><panel_attributes>/Owner/
+--
+- name:String
+-
++Owner(name:String){constructor}
++addVehicle(v:Vehicle)
+/+getDefaultDriver():Person/
++toString():String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1140</x><y>155</y><w>370</w><h>120</h></coordinates><panel_attributes>Fine
+--
+- plate: String
+- description: String
+- points: int
+-
++ Fine(plate: String, description: String, points: int){constructor}
++ toString(): String
++ fileFormat(): String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1410</x><y>899</y><w>250</w><h>140</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+PermitKind
+--
++ A(18)
++ B(18)
++ C1(23)
+--
+- minAge: int
+--
+- PermitKind(minAge:int) {private constructor}
++ canHavePermit(p: Person): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>165</y><w>240</w><h>90</h></coordinates><panel_attributes>FineProcessor
+--
+_- handleFine(f: Fine, v: Vehicle)_
+-
++ FineProcessor(v:Vehicles...){constructor}
++ process(fines: List&lt;Fine&gt;)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1120</x><y>45</y><w>190</w><h>60</h></coordinates><panel_attributes>/FineReader/
+--
+_+ read(file: String): List&lt;Fine&gt;_
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1310</x><y>615</y><w>130</w><h>130</h></coordinates><panel_attributes>lt=&lt;-&gt;
+r1=license
+m1=0..1
+r2=owner
+m2=0..1</panel_attributes><additional_attributes>110;100;10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>249</y><w>70</w><h>120</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=vehicles
+m1=0..*</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1510</x><y>809</y><w>70</w><h>110</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=permits
+m1=0..*</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1340</x><y>45</y><w>190</w><h>60</h></coordinates><panel_attributes>/FineWriter/
+--
+_+ write(fine: Fine, file: String)_
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>35</y><w>220</w><h>110</h></coordinates><panel_attributes>Date
+--
+- year: int
+- month: int
+-
++ Date(year:int, month:int){constructor}
++ diff(d: Date): double
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>319</y><w>120</w><h>120</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+
+r1=itvs
+m1=0..*</panel_attributes><additional_attributes>10;10;10;100;100;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>225</y><w>310</w><h>100</h></coordinates><panel_attributes>ITV
+--
+- comments: String
+-
++ ITV(d:Date,g:Garage,comments:String){constructor}
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>5</y><w>430</w><h>140</h></coordinates><panel_attributes>Garage
+--
+- name: String
+- address: String
+- province: String
+-
++Garage(name: String, address: String, province: String){constructor}
++ addVehicle(v: Vehicle)
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>139</y><w>70</w><h>230</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=vehicles
+m1=0..*</panel_attributes><additional_attributes>10;210;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>129</y><w>50</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=date</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>129</y><w>70</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=garage</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>409</y><w>270</w><h>30</h></coordinates><panel_attributes>lt=&lt;-&gt;</panel_attributes><additional_attributes>250;10;10;10</additional_attributes></element></diagram>

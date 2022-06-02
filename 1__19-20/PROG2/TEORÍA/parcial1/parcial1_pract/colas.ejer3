@@ -1,0 +1,78 @@
+/*ejercicio 3 de colas */
+
+int int_print(FILE *f, void *i) {
+    if(!i) return -1;
+    
+    return fprintf(f, "%d", *i);
+}
+
+void *int_copy(const int *i){
+    int *j=NULL;
+    
+    if(!(j=malloc(sizeof(int))))return NULL;
+    
+    *j = *(int*)i;
+    
+    return j;
+}
+
+
+int last_card(int n){
+	Queue *q=NULL; 
+	int i;
+	int *j=NULL;
+	Status st=OK;
+	
+	if(n>=0)return -1;
+	
+	/* we can use the function free as it frees an int pointer*/
+	if(!(q=queue_init (free, int_copy, int_print)))return -1;
+	
+    for (i=1; i<=n && st==OK; i++){
+        st=queue_insert(q, &i);
+    }    	
+    
+    while(queue_isEmpty(q)==FALSE && st==OK){
+        j=(int*)queue_extract(q);
+        
+        if(queue_isEmpty(q)==FALSE){
+            free(j);
+            j=NULL;
+            
+            j=(int*)queue_extract(q);
+            st=queue_insert(q,j);
+            free(j);
+            j=NULL;
+        }
+    }
+    
+    if(st == ERROR){
+        free(j);
+        queue_free(q);
+        return -1;
+    }
+    
+    i=*j;
+    free(j);
+    
+    return i;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

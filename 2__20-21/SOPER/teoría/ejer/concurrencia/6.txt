@@ -1,0 +1,41 @@
+/* ejercicio 6 */
+
+semaphore museo = 100;
+semaphore cola = 0;
+semaphore mutex = 1;
+int count = 0; 
+semaphore avisar_guía = 0;
+semaphore guía = 5;
+
+visitante()
+{
+    down(museo);
+    visitar_museo();
+    up(museo);
+    
+    down(mutex);
+    count++;
+    if(count==10) up(avisar_guía);
+    up(mutex);
+    
+    down(cola);
+    visitar_con_guía();
+}
+
+guía()
+{
+    while(1)
+    {
+        down(guía);
+        down(avisar_guía);
+        
+        down(mutex);
+        count -= 10;
+        up(mutex);
+        up(cola, 10);
+        
+        visita_basílica();
+        
+        up(guía);
+    }
+}

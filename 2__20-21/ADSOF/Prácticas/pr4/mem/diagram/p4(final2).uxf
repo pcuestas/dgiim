@@ -1,0 +1,180 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>830</x><y>776</y><w>310</w><h>390</h></coordinates><panel_attributes>/Vehicle/
+--
+- id: int
+# actualPosition: double = 0.0
+# maxSpeed: double
+- canMove: boolean = true
+_- countIDs: int = 1_
+--
++ Vehicle(maxSpeed: double)
+/+ getVehicleTypeName(): String/
++ toString(): String
++ getActualPosition(): double
++ setActualPosition(newPosition: double)
++ canMove(): boolean
++ setCanMove(newMovement: boolean)
++ getMaxSpeed(): double
++ getName(): String
++ addComponent(c: IComponent) 
++ getComponents(): List&lt;IComponent&gt;
++ distance(w: Vehicle): double
+/+ move()/
++ repairComponents()
++ canAttack(): boolean
++ attack(w: Vehicle)
+- bananaDispenser(): BananaDispenser
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>712</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1260</x><y>596</y><w>230</w><h>160</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IComponent/
+--
++ isDamaged(): boolean
++ setDamaged(damage: boolean)
++ getName(): String
++ costRepair(): int
++ getVehicle(): IVehicle
++ isCritical(): boolean
++ repair()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>790</y><w>200</w><h>80</h></coordinates><panel_attributes>Car
+--
++ Car(maxSpeed: double)
++ getVehicleTypeName(): String
++ move()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>910</y><w>210</w><h>110</h></coordinates><panel_attributes>Motorcycle
+--
++ Motorcycle(maxSpeed: double)
++ getVehicleTypeName(): String
++ move()
++ addComponent(c: IComponent)
++ canAttack()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>1070</y><w>200</w><h>80</h></coordinates><panel_attributes>Truck
+--
++ Truck(maxSpeed: double)
++ getVehicleTypeName(): String
++ move()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>748</x><y>806</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>748</x><y>1086</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>936</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>250</x><y>210</y><w>120</w><h>60</h></coordinates><panel_attributes>RaceException
+--
+/+ toString(): String/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>340</y><w>100</w><h>40</h></coordinates><panel_attributes>Exception</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>298</x><y>376</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;10;12;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>130</y><w>120</w><h>60</h></coordinates><panel_attributes>RaceSmallException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>250</x><y>90</y><w>130</w><h>60</h></coordinates><panel_attributes>NumVehiclesException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>130</y><w>140</w><h>60</h></coordinates><panel_attributes>InvalidSpeedException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>980</x><y>180</y><w>300</w><h>300</h></coordinates><panel_attributes>Race
+--
+- length: double
+- allowAttacks: boolean = false
+- allowPowerUps: boolean = false
+--
++ Race(length: double, vehicles: List&lt;IVehicleRace&gt;)
++ toString(): String
+- vehicleToStringInRace(v: IVehicleRace): String
++ allowAttacks(b: boolean)
++ allowPowerUps(b: boolean)
++ simulate()
+- powerUpsPhase()
+- attackingPhase()
++ getNextVehicle(v: IVehicle): IVehicleRace
+- repairingPhase()
+- positionUpdating():
+- findWinner(): IVehicleRace
++ getVehicles(): List&lt;IVehicleRace&gt;
++ getFirstVehicle(): IVehicleRace</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>0</y><w>380</w><h>120</h></coordinates><panel_attributes>RaceReader
+--
+_+ read(file: String): Race_
+_- createVehiclesFromFileFields(fields: String[]): List&lt;IVehicleRace&gt;_
+_- createComponent(string: String, v: IVehicleRace): IComponent_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>450</y><w>160</w><h>60</h></coordinates><panel_attributes>ComponentException
+--
+/+ toString(): String/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>590</y><w>310</w><h>120</h></coordinates><panel_attributes>InvalidComponentException
+--
+- component: IComponent
+- vehicle: IVehicle
+--
++ InvalidComponentException(component: IComponent, 
+                                                  vehicle: IVehicle )
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>590</y><w>230</w><h>90</h></coordinates><panel_attributes>InvalidComponentName
+--
+- name: String
+--
++ InvalidComponentName(name: String)
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>298</x><y>266</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;70;12;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1260</x><y>850</y><w>230</w><h>210</h></coordinates><panel_attributes>/Component/
+--
+- turnsLeftUntilRepaired: int = 0
+- id: int
+_- countIDs: int = 0_
+--
+# Component(vehicle: IVehicle)
++ isDamaged(): boolean
++ setDamaged(damage: boolean)
++ getVehicle(): IVehicle
++ repair()
++ toString(): String
++ isCritical(): boolean
++ int compareTo(Component c):</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>326</y><w>230</w><h>180</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IVehicle/
+--
++ getActualPosition(): double
++ setActualPosition(newPosition: double)
++ canMove(): boolean
++ setCanMove(newMovement: boolean)
++ getMaxSpeed(): double
++ getName(): String
++ addComponent(c: IComponent)
++ getComponents(): List&lt;IComponent&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1360</x><y>752</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1600</x><y>760</y><w>210</w><h>80</h></coordinates><panel_attributes>BananaDispenser
+--
++ BananaDispenser(vehicle: IVehicle)
++ getName(): String
++ costRepair(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1640</x><y>880</y><w>310</w><h>120</h></coordinates><panel_attributes>CriticalComponent
+--
+- name: String
+--
++ CriticalComponent(vehicle: IVehicle, name: String)
++ getName(): String
++ costRepair(): int
++ isCritical(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1488</x><y>926</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1600</x><y>1040</y><w>200</w><h>80</h></coordinates><panel_attributes>Window
+--
++ Window(vehicle: IVehicle)
++ getName(): String
++ costRepair(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1488</x><y>1006</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10;130;30</additional_attributes></element><element><id>Relation</id><coordinates><x>298</x><y>136</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>12;70;12;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1130</x><y>644</y><w>150</w><h>180</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+
+r1=components
+m1=0..*</panel_attributes><additional_attributes>130;20;50;20;50;160;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>1130</x><y>914</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+
+r1=vehicle
+m1=0..1</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>990</x><y>474</y><w>110</w><h>210</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+
+r1=vehicles
+m1=0..*</panel_attributes><additional_attributes>10;180;90;180;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>700</y><w>650</w><h>360</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>540;290;580;290;580;340;10;340;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>700</y><w>1120</w><h>530</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>900;320;1050;320;1050;510;10;510;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>180</y><w>110</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>180</y><w>110</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;90;60;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1810</x><y>340</y><w>210</w><h>90</h></coordinates><panel_attributes>AttackFirstPowerUp
+--
++ AttackFirstPowerUp(race: Race)
++ applyPowerUpMessage(v: IVehicle)
++ namePowerUp(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1430</x><y>186</y><w>200</w><h>90</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IPowerUp/
+--
++ applyPowerUp(v: IVehicle)
++ namePowerUp(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1410</x><y>350</y><w>230</w><h>90</h></coordinates><panel_attributes>/PowerUp/
+--
++ PowerUp(race: Race)
+# applyingPowerUpMessage(v: IVehicle)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1720</x><y>210</y><w>210</w><h>90</h></coordinates><panel_attributes>AttackAllPowerUp
+--
++ AttackAllPowerUp(race: Race)
++ applyPowerUp(v: IVehicle)
++ namePowerUp(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1690</x><y>470</y><w>290</w><h>110</h></coordinates><panel_attributes>SwapPowerUp
+--
++ SwapPowerUp(race: Race)
++ applyPowerUpMessage(v: IVehicle)
+- printSwapString(v: IVehicle, oldPosition: double)
++ namePowerUp(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1630</x><y>380</y><w>200</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1488</x><y>836</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;30;130;30;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>450</y><w>460</w><h>330</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>440;10;370;10;370;310;10;310;10;260</additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>576</y><w>200</w><h>140</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IVehicleRace/
+--
++ move()
++ distance(w: IVehicle): double
++ canAttack(): boolean
++ attack(w: Vehicle)
++ repairComponents()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>146</x><y>470</y><w>110</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>396</x><y>470</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10;70;120</additional_attributes></element><element><id>Relation</id><coordinates><x>818</x><y>496</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>1270</x><y>204</y><w>180</w><h>50</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+
+r1=powerUps
+m1=0..*</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1270</x><y>370</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+r1=race
+m1=0..1</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1630</x><y>410</y><w>160</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;140;10;140;60</additional_attributes></element><element><id>Relation</id><coordinates><x>1510</x><y>270</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>1630</x><y>290</y><w>160</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;70;140;70;140;10</additional_attributes></element></diagram>

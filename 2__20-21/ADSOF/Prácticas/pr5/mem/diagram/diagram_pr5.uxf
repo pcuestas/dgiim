@@ -1,0 +1,55 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>680</x><y>182</y><w>390</w><h>130</h></coordinates><panel_attributes>/AbstractForm/
+--
+# scanner: Scanner
+--
+/+ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;/
+/# requestAnswer(s: String, field: Field&lt;T&gt;):/
+/                              &lt;T extends Comparable&lt;? super T&gt; &gt; T/
+/+ add(question:String, field:Field&lt;T&gt;): /
+/                              &lt;T extends Comparable&lt;? super T&gt; &gt; AbstractForm/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>182</y><w>360</w><h>140</h></coordinates><panel_attributes>Form
+--
+- entries: Map&lt;String, Field&lt;?&gt; &gt;
+--
++ add(string: String, age: Field&lt;T&gt;):
+             &lt;T extends Comparable&lt;T&gt; &gt; AbstractForm
++ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;
++ requestAnswer(s: String, field: Field&lt;T&gt;):
+                              &lt;T extends Comparable&lt;? super T&gt; &gt; T</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>372</y><w>390</w><h>180</h></coordinates><panel_attributes>ProtectedForm
+--
+- form: Form
+- passwordField: Field&lt;String&gt;
+- locked: boolean = true
+--
+- ProtectedForm(form: Form, password: String) {constructor}
+_+ protect(form: Form, password: String): ProtectedForm_
++ add(string: String, age: Field&lt;T&gt;):
+             &lt;T extends Comparable&lt;T&gt; &gt; AbstractForm
++ exec(): Map&lt;String, Comparable&lt;?&gt; &gt;
++ requestAnswer(s: String, field: Field&lt;T&gt;):
+                              &lt;T extends Comparable&lt;? super T&gt; &gt; T</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>238</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>832</y><w>350</w><h>120</h></coordinates><panel_attributes>DataAggregator
+--
+- data: Map&lt;String, List&lt;Comparable&lt;?&gt; &gt; &gt; 
+--
++ add(answers: Map&lt;String, Comparable&lt;?&gt; &gt;)
+- addToData(key: String, value: Comparable&lt;?&gt;)
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>652</y><w>370</w><h>150</h></coordinates><panel_attributes>Field&lt;T extends Comparable&lt;? super T&gt; &gt;
+--
+- function: Function&lt;String, ? extends T&gt;
+- validations: Map&lt;Predicate&lt;T&gt;, String&gt;
+--
++ Field(func: Function&lt;String, ? extends T&gt;) {constructor}
++ getValue(ans: String): T
++ checkValidations(answer: T)
++ addValidation(predicate: Predicate&lt;T&gt;, string: String): Field&lt;T&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>298</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>562</y><w>340</w><h>120</h></coordinates><panel_attributes>InvalidAnswerException
+--
+- message: String
+- answer: Object
+--
++ InvalidAnswerException(message: String, answer: Object)
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>422</y><w>140</w><h>50</h></coordinates><panel_attributes>/FormException/
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>572</y><w>200</w><h>70</h></coordinates><panel_attributes>InvalidFormatException
+--
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>319</x><y>342</y><w>100</w><h>30</h></coordinates><panel_attributes>Exception</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>362</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>452</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10;70;120</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>442</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>309</x><y>672</y><w>410</w><h>100</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;10;10;80;390;80</additional_attributes></element><element><id>Relation</id><coordinates><x>429</x><y>432</y><w>290</w><h>320</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;10;200;10;200;300;270;300</additional_attributes></element></diagram>

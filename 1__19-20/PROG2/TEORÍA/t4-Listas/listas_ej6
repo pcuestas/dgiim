@@ -1,0 +1,115 @@
+ListStrange ListStrange_Ini(){
+    ListStrange *pl = NULL;
+    
+    pl=malloc(sizeof(ListStrange));
+    
+    if(!pl) return NULL;
+    
+    pl->first=pl->last=NULL;
+    
+    return pl;
+}
+
+Bool ListStrange_isEmpty(ListStrange *pl){
+    if(!pl) return NULL;
+    if(pl->first == NULL) 
+        return TRUE;
+    return FALSE;
+}
+
+Status ListStrange_insertIni(ListStrange *pl, Element *pe){
+    Node *pn = NULL;
+    
+    if(!pl||!pe) return ERROR;
+    
+    pn=node_init();
+    if(!pn) return ERROR;
+    
+    if(!(pn->info=element_copy(pe))){
+        node_destroy(pn);
+        return ERROR;
+    }
+    
+    if(pl->first==NULL)
+        pl->first = pl->last = pn;
+    else{
+        pn->next = pl->first;
+        pl->first = pn;
+    }
+    
+    return OK;
+}
+
+Status ListStrange_insertEnd(ListStrange *pl, Element *pe){
+    Node *pn = NULL;
+    
+    if(!pl||!pe) return ERROR;
+    
+    pn=node_init();
+    if(!pn) return ERROR;
+    
+    if(!(pn->info=element_copy(pe))){
+        node_destroy(pn);
+        return ERROR;
+    }
+    
+    if(pl->first==NULL)
+        pl->first = pl->last = pn;
+    else{
+        pl->last->next = pn;
+        pl->last = pn;
+    }
+    
+
+    
+    return OK;
+}
+
+Element ListStrange_extractIni(ListStrange *pl) {
+    Element *ele=NULL;
+    Node *pn = NULL;
+    
+    if(ListStrange_isEmpty(pl)||!pl) 
+        return NULL;
+    
+    pn = pl->first;
+    ele = pn->info;
+    pn->info = NULL;
+    pl->first = pn->next;
+    
+    node_destroy(pn);
+    
+    return ele;
+}
+
+Element ListStrange_extractEnd(ListStrange *pl) {
+    Element *ele=NULL;
+    Node *pn1 = NULL, *pn2 = NULL;
+    
+    if(ListStrange_isEmpty(pl)||!pl) 
+        return NULL;
+    
+    pn1 = pl->last;
+    ele = pn1->info;
+    pn1->info = NULL;
+    
+    pn2 = pl->first;
+    
+    while(pn2->next != pn1)
+        pn2 = pn2->next
+        
+    pl->last = pn2;    
+    
+    node_destroy(pn1);
+    
+    return ele;
+}
+
+
+
+
+
+
+
+
+

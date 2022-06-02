@@ -1,0 +1,204 @@
+List list_combineOrder(const List *pla,  const List *plb){
+    Node pa = NULL;
+    Node pb = NULL;
+    Node paux = NULL
+    List laux = NULL;
+    
+    if(!pla||!plb)
+        return NULL;
+    
+    pa = pla->first;
+    pb = plb->first
+    
+    laux = list_init();
+    
+    if(!laux) retutrn NULL;
+    
+    paux = laux->first;
+    
+    while (pa != NULL && pb != NULL){
+        cmp = ele_cmp(pa->root, pb->root)
+        
+        pbaux = node_new();
+        if(!pbaux) {
+            list_free(laux);
+            return NULL;
+        }
+        
+        if (cmp < 0){
+            pbaux->info = ele_cpy(pa->root);
+            if(!pbaux->info){
+                node_free(pbaux);
+                list_free(laux);
+                return NULL;
+            }
+            pbaux = pbaux->next;
+            pa = pa->next;
+        }else {
+            pbaux->info = ele_cpy(pb->root);
+            if(!pbaux->info){
+                node_free(pbaux);
+                list_free(laux);
+                return NULL;
+            }
+            pbaux = pbaux->next;
+            pb = pb->next;
+        }
+    }
+    
+    if(pa == NULL)
+        pa = pb;
+        
+    while(pa != NULL){
+        pbaux = node_new();
+        if(!pbaux) {
+            list_free(laux);
+            return NULL;
+        }
+        pbaux->info = ele_cpy(pa->root);
+        if(!pbaux->info){
+            node_free(pbaux);
+            list_free(laux);
+            return NULL;
+        }
+        pbaux = pbaux->next;
+        pa = pa->next;
+    }
+    
+    return laux;
+}
+
+/**********************************************************************/
+
+BT *btree_copy(BT *t){
+    BT *pt = NULL;
+    
+    if(!(pt = bt_new()) return NULL;
+
+    pt->root = btree_copyRec(
+    
+    if(!(pt->root)){
+        bt_destroy(pt);
+        return NULL;
+    }
+    return pt;
+}
+
+BTNode *btree_copyRec(BTNode *pn){
+    BTNode *n = NULL;
+    
+    if(!pn) return NULL;
+    
+    if(!(n = node_new()))
+        return NULL;
+        
+    n->info = ele_copy(pn->info);
+    if(!n->info) {
+        node_free(n);
+        return NULL;
+    }
+    
+    n->left = btree_copyRec(pn->left);
+    n->right = btree_copyRec(pn->rigt);
+    return n;
+}
+
+/******************************************************************/
+
+void bt_mirror(BT *T){
+    if(T)
+        bt_mirrorRec(T->root);
+}
+
+void bt_mirrorRec(BTNode *pn){
+    BTNode *aux = NULL;
+    
+    if(!pn) return ;
+    
+    aux = pn->left;
+    pn->left = pn->right;
+    pn->right = aux;
+    
+    bt_mirrorRec(pn->right);
+    bt_mirrorRec(pn->left); 
+}
+
+/***********************************************************************/
+
+char *expresion_treeArithmetic(BT *T){
+    char *str = NULL;
+    if(!T) return NULL;
+    int j = 0;
+    
+    if(!(str = malloc(MAX_SIZE*sizeof(char))))
+        return NULL;
+    
+    st = expr_rec(T->root, str, &j);
+    
+    if(st = ERROR){
+        free(str);
+        return NULL;
+    }
+    
+    str[j] = '\0';
+    
+    return str;    
+}
+
+Status expr_rec(BTNode *pn, char *str, int *j){
+    Status stl = OK, str = OK;
+    
+    if(!str || !j) return ERROR;
+    if(!pn) return OK;
+    
+    str[*j] = *(pn->info);
+    (*j) ++;
+    
+    stl = expr_rec(pn->left, str, j);
+    str = expr_rec(pn->right, str j);
+    
+    return stl == ERROR ? stl : str;
+}
+
+
+/************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

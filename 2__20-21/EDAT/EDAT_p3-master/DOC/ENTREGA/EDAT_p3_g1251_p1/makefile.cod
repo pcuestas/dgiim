@@ -1,0 +1,27 @@
+CC = gcc -g
+CFLAGS = -Wall -Wextra -pedantic -ansi
+# LDLIBS = -lodbc
+
+# recompile if this header changes
+HEADERS = utils.h menu_funcions.h
+
+EXE = user_interface
+OBJ = $(EXE).o utils.o menu_functions.o
+
+all : $(EXE)
+
+run : 
+	@echo Running menu
+	./$(EXE)
+
+%.o : %.c $(HEADERS)
+	@echo Compiling $<...
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(EXE): $(DEPS) $(OBJ)
+	$(CC) -o $(EXE) $(OBJ) $(LDLIBS)
+
+clean :
+	rm -f *.o core $(EXE)
+
+

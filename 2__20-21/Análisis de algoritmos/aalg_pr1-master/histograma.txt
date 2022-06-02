@@ -1,0 +1,7 @@
+histograma ocn gnuplot:
+
+para obtener "[número] [cúantas veces aparece]" en sorted.txt 
+    sort -g exercise1.txt | uniq -c | awk '{print $2,$1}'> sorted.txt
+
+en gnuplot: 
+    plot "sorted.txt" with boxes

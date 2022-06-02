@@ -1,0 +1,33 @@
+odbc.c: (in function odbc_extract_error)
+odbc.c:19:43: Function SQLGetDiagRec expects arg 3 to be SQLSMALLINT gets
+                 SQLINTEGER: ++i
+  Types are incompatible. (Use -type to inhibit warning)
+odbc.c:19:76: Function SQLGetDiagRec expects arg 7 to be SQLSMALLINT gets
+                 size_t: sizeof((text))
+odbc.c:19:48: Passed storage state not completely defined (*state is
+                 undefined): SQLGetDiagRec (..., state, ...)
+  Storage derivable from a parameter, return value or global is not defined.
+  Use /*@out@*/ to denote passed or returned storage which need not be defined.
+  (Use -compdef to inhibit warning)
+odbc.c:19:55: Passed storage &native not completely defined:
+                 SQLGetDiagRec (..., &native, ...)
+odbc.c:19:64: Passed storage text not completely defined (*text is undefined):
+                 SQLGetDiagRec (..., text, ...)
+odbc.c:19:84: Passed storage &len not completely defined:
+                 SQLGetDiagRec (..., &len)
+odbc.c:21:37: Format argument 1 to printf (%s) expects char * gets SQLCHAR [7]:
+                 state
+  Type of parameter is not consistent with corresponding code in format string.
+  (Use -formattype to inhibit warning)
+   odbc.c:21:22: Corresponding format code
+odbc.c:21:55: Format argument 4 to printf (%s) expects char * gets SQLCHAR
+                 [256]: text
+   odbc.c:21:31: Corresponding format code
+odbc.c: (in function odbc_connect)
+odbc.c:31:29: Function SQLAllocHandle expects arg 2 to be SQLHANDLE gets long
+                 int: 0L
+odbc.h:8:6: Function exported but not used outside odbc: odbc_extract_error
+  A declaration is exported, but not used outside this module. Declaration can
+  use static qualifier. (Use -exportlocal to inhibit warning)
+   odbc.c:24:1: Definition of odbc_extract_error
+

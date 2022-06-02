@@ -1,0 +1,35 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>220</y><w>270</w><h>100</h></coordinates><panel_attributes>_q1: Questionnaire_
+--
+String: introText="Questionnaire: Supermarkets"
+int: estimatedNumMinutes=14
+String: startDate="2021-02-13"
+String: endDate="2021-02-28"
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>110</y><w>370</w><h>100</h></coordinates><panel_attributes>_qu1: SingleChoiceQuestion_
+--
+String: text = "Which of these supermarkets do you go to the most?"
+int numOptions = 3
+boolean randomOrder = true
+String []: options = {"Noche", "Supermarket1", "Supermarket2"}
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>270</y><w>240</w><h>80</h></coordinates><panel_attributes>_a2: MultipleChoiceAnswer_
+--
+String startDate = "2021-02-16 11:58:56"
+String endDate = "2021-02-16 12:00:23"
+int [] answers = {1, 3}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>270</y><w>100</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>80;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>380</y><w>430</w><h>70</h></coordinates><panel_attributes>_qu3: OpenEndedQuestion_
+--
+String: text = "What do you like the least about your frequented supermarkets?"
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>250</y><w>390</w><h>110</h></coordinates><panel_attributes>_qu2: MultipleChoiceQuestion_
+--
+String: text = "Which of this items do you usually buy?"
+int numOptions = 3
+boolean randomOrder = true
+String []: options = {"Bananas", "Apples", "Pears", "Strawberries"}
+boolean noOptionFlag = false</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>160</y><w>100</w><h>120</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>80;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>290</y><w>100</w><h>140</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>80;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>290</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>530</y><w>170</w><h>80</h></coordinates><panel_attributes>_n1:Navigation_
+--
+String name = "conditional1"
+boolean isConditional = true</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>540</y><w>190</w><h>70</h></coordinates><panel_attributes>_n2:Navigation_
+--
+String name = "simple"
+boolean isConditional = false</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>310</y><w>40</w><h>240</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>20;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>310</y><w>210</w><h>250</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>190;230;10;10</additional_attributes></element></diagram>

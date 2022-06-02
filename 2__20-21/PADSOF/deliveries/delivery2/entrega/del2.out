@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{Class diagram}{}% 1
+\BOOKMARK [1][-]{section.2}{State diagrams}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{State diagram of class: Performance}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{State diagram of class: Ticket}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Sequence diagrams}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Sequence diagram: Create area \(configure areas\)}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Sequence diagram: Purchase/Reserve tickets}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Requirements traceability matrix}{}% 8

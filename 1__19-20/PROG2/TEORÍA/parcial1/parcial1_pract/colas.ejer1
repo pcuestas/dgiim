@@ -1,0 +1,108 @@
+/*estructura: */
+
+struct _Queue{
+    Element *data[MAX_QUEUE];
+    int front;
+    int rear;
+    Bool is_empty;
+};
+
+/*init and free*/
+
+Queue queue_init(){
+    Queue *pq=NULL;
+    
+    if(!(pq=malloc(sizeof(Queue)))) return NULL;
+   
+    pq->front=pq->rear=0;
+   
+    pq_>is_empty=TRUE;
+   
+    for(int i=0; i<MAX_QUEUE; i++)
+        pq->data[i] = NULL;
+   
+    return pq;
+}
+
+void queue_free(Queue *q){
+    int i;
+    Element *ele=NULL;
+    
+    if(!q) return ;
+    
+    while (queue_isEmpty == FALSE){
+        ele=queue_extract(q);
+        element_free(ele);
+    }
+    
+    free(q);
+}
+
+/*is empty, is full*/
+
+Bool queue_isEmpty(Queue *q){
+    if(!q) return TRUE;
+    return q->is_empty;
+}
+
+Bool queue_isFull(Queue *q){
+    if(!q) return TRUE;
+    
+    if(q->front == q->rear && q->is_empty==FALSE)
+        return TRUE;
+    return FALSE;
+}
+
+
+Status  queue_insert(Queue *q, Element *e){
+    
+    if(!q || !e || queue_isFull(q)==TRUE) return ERROR;
+    
+    q->data[q->rear] = elemet_copy(e);
+
+    if(q->data[q->rear] == NULL) return ERROR;
+    
+    q->is_empty = FALSE;
+    
+    q->rear = (q->rear + 1)%MAX_QUEUE;
+    
+    return OK;
+}
+
+
+Element *queue_extract(Queue *q){
+    Element *e=NULL;
+    
+    if(!q || queue_isEmpty(q)==TRUE) return NULL;
+    
+    e = q->data[q->front];
+    q->data[q->front]=NULL;
+    q->front = (q->front + 1)%MAX_QUEUE;
+    
+    if(q->rear==q->front)
+        q->is_empty = TRUE;
+    
+    return e;
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
